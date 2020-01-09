@@ -19,7 +19,7 @@ pipeline{
                             branches: [[name: '*/master']],
                             doGenerateSubmoduleConfigurations: false,
                             extensions: [],
-                            gitTool: 'GIT_AZDevOps',
+                            gitTool: 'Git_Centos',
                             submoduleCfg: [],
                             userRemoteConfigs: [[
                             credentialsId: 'GitHub_EstebanCastano95',
