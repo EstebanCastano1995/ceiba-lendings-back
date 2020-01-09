@@ -30,8 +30,8 @@ pipeline{
                         stage('Build project') {
                            steps {
                               echo "------------>Building project<------------"
-                              sh 'gradle --b ./ceiba-lendings-back/build.gradle clean'
-                              sh 'gradle --b ./ceiba-lendings-back/build.gradle build'
+                              sh 'gradle --b ceiba-lendings-back/build.gradle clean'
+                              sh 'gradle --b ceiba-lendings-back/build.gradle build'
                            }
                         }
                         stage('Compile & Unit Tests') {
