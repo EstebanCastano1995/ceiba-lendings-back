@@ -59,7 +59,7 @@ pipeline{
          post {
             success{
                echo '******************************SUCESS*****************************'
-               junit 'ceiba-lendings-back/build/test-results/test/*.xml'
+               junit 'build/test-results/test/*.xml'
             }
             failure {
                echo '*******************************FAILED*****************************'
