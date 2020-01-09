@@ -31,3 +31,7 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+task jacocoReport(dependsOn: test){
+	jacocoTestReport {reports {xml.enabled true}}
+}
