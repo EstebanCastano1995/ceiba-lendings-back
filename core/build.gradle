@@ -1,0 +1,8 @@
+description = "Domain model for laboratory service"
+
+dependencies {
+    implementation libs.spring_boot
+    implementation libs.inject
+    implementation libs.log
+    testCompile libs.unit_tests
+}

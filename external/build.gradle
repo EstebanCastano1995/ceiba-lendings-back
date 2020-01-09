@@ -1,0 +1,10 @@
+description = "External interfaces for laboratory service"
+
+dependencies {
+    implementation project(":core")
+    implementation libs.persistence
+    implementation libs.inject
+    implementation libs.spring_boot
+    implementation libs.log
+    testCompile libs.unit_tests
+}

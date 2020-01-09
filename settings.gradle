@@ -1,0 +1,6 @@
+rootProject.name = 'CeibaLendings'
+include 'core'
+include 'external'
+include 'entrypoints'
+include 'configuration'
+
