@@ -11,6 +11,7 @@ pipeline{
    }
   stages {
                         stage('Checkout') {
+                            echo '***********DOWNLOADING CODE**************'
                             steps{
                             echo "------------>Checkout<------------"
                             checkout([
@@ -18,7 +19,7 @@ pipeline{
                             branches: [[name: '*/master']],
                             doGenerateSubmoduleConfigurations: false,
                             extensions: [],
-                            gitTool: 'Git_Centos',
+                            gitTool: 'GIT_AZDevOps',
                             submoduleCfg: [],
                             userRemoteConfigs: [[
                             credentialsId: 'GitHub_EstebanCastano95',
