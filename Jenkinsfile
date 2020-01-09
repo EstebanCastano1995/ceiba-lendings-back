@@ -57,9 +57,6 @@ pipeline{
                         }         
          }
          post {
-            always {
-               echo 'This always run'
-            }
             success{
                echo 'This will run only if successfull'
                junit 'ceiba-lendings-back/build/test-results/test/*.xml'
@@ -69,13 +66,6 @@ pipeline{
                mail(to: 'esteban.castano@ceiba.com.co',
                   subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                   body: "Something is wrong with ${env.BUILD_URL}")
-            }
-            unstable {
-               echo 'This will run only if the run was marked as unstable'
-            }
-            changed {
-               echo 'This will run only if the state of the pipeline has changed'
-               echo 'For example, if the Pipeline was previously failing but is now successfull'
             }
          }
  }
