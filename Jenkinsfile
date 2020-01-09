@@ -58,11 +58,11 @@ pipeline{
          }
          post {
             success{
-               echo 'This will run only if successfull'
+               echo '******************************SUCESS*****************************'
                junit 'ceiba-lendings-back/build/test-results/test/*.xml'
             }
             failure {
-               echo 'This will run only if failed'
+               echo '*******************************FAILED*****************************'
                mail(to: 'esteban.castano@ceiba.com.co',
                   subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                   body: "Something is wrong with ${env.BUILD_URL}")
