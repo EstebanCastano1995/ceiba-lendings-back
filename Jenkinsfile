@@ -11,7 +11,7 @@ pipeline{
    }
   stages {
                         stage('Checkout') {
-                            echo '***********DOWNLOADING CODE**************'
+                            echo "***********DOWNLOADING CODE**************"
                             steps{
                             echo "------------>Checkout<------------"
                             checkout([
