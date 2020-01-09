@@ -37,8 +37,8 @@ pipeline{
                         stage('Compile & Unit Tests') {
                            steps {
                               echo "--------------->Unit Tests<--------"
-                              sh 'gradle --b ./ceiba-lendings-back/build.gradle test'
-                              sh 'gradle --b ./ceiba-lendings-back/build.gradle jacocoTestReport'
+                              sh 'gradle --b ./build.gradle test'
+                              sh 'gradle --b ./build.gradle jacocoTestReport'
                            }
                         }
                         stage('Static Code Analysys'){
@@ -52,7 +52,7 @@ pipeline{
                         stage('Build') {
                            steps {
                               echo "-------->Build<---------"
-                              sh 'gradle --b ./ceiba-lendings-back/build.gradle build -x test'
+                              sh 'gradle --b ./build.gradle build -x test'
                            }
                         }         
          }
