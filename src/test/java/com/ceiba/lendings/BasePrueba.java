@@ -6,7 +6,6 @@ import org.junit.Assert;
 
 public class BasePrueba {
 
-
 	private static final String EXCEPCION_THROWED = " Se lanzó ";
 	private static final String EXPECTED_EXCEPTION = " Se esperaba ";
 
