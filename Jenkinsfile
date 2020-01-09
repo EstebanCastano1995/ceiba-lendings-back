@@ -29,6 +29,7 @@ pipeline{
                         }
                         stage('Build project') {
                            steps {
+                              echo "------------>Building project<------------"
                               sh 'gradle --b ./ceiba-lendings-back/build.gradle clean'
                               sh 'gradle --b ./ceiba-lendings-back/build.gradle build'
                            }
@@ -65,7 +66,7 @@ pipeline{
             }
             failure {
                echo 'This will run only if failed'
-               mail(to: 'daniel.castro@ceiba.com.co',
+               mail(to: 'esteban.castano@ceiba.com.co',
                   subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                   body: "Something is wrong with ${env.BUILD_URL}")
             }
