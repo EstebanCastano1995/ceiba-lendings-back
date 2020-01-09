@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="configuration-1.0.0-SNAPSHOT">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/configuration/build/libs/configuration-1.0.0-SNAPSHOT.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
