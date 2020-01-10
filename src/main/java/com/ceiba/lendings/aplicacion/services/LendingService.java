@@ -9,4 +9,5 @@ public interface LendingService {
 
     List<LendingCommand> getLendings();
     Boolean createLending(Lending lending);
+    Boolean updateLending(Lending lending);
 }

@@ -26,4 +26,9 @@ public class LendingServiceImpl implements LendingService{
     public Boolean createLending(Lending lending) {
         return  lendingRepository.createLending(lending);
     }
+
+    @Override
+    public Boolean updateLending(Lending lending) {
+        return  lendingRepository.updateLending(lending);
+    }
 }

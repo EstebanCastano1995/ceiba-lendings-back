@@ -8,4 +8,5 @@ import java.util.List;
 public interface LendingRepository {
     List<LendingCommand> getLendings();
     Boolean createLending(Lending lending);
+    Boolean updateLending(Lending lending);
 }

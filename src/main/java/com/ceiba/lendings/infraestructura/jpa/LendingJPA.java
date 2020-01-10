@@ -16,4 +16,7 @@ public interface LendingJPA extends JpaRepository<LendingEntity, Long>{
     @Query(nativeQuery = true,value="insert into lending (lending_return_date,lending_total_amount,lending_value,lending_date) values (:lending_return_date,:lending_total_amount,:lending_value,:lending_date)")
     Integer saveLending(@Param("lending_return_date")Date lending_return_date,@Param("lending_total_amount")Integer lending_total_amount,@Param("lending_value")Integer lending_value,@Param("lending_date")Date lending_date);
 
+    @Modifying
+    @Query(nativeQuery = true,value="update lending set lending_return_date=:lending_return_date , lending_total_amount=:lending_total_amount where id=:id")
+    Integer updateLending(@Param("lending_return_date")Date lending_return_date,@Param("lending_total_amount")Integer lending_total_amount,@Param("id")Integer id);
 }
