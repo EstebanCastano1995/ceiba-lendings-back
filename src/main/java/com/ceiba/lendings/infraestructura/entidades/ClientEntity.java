@@ -74,4 +74,15 @@ public class ClientEntity {
     public void setBirth_date(Date birth_date) {
         this.birth_date = birth_date;
     }
+
+    @Override
+    public String toString() {
+        return "ClientEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birth_date=" + birth_date +
+                '}';
+    }
 }

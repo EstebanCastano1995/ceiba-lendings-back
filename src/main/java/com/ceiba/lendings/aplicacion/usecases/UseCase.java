@@ -1,4 +1,4 @@
-package com.ceiba.lendings.aplicacion.comando.usecases;
+package com.ceiba.lendings.aplicacion.usecases;
 
 /**
  * This define the methods for an Use Case service in the architecture.

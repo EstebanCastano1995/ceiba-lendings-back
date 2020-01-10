@@ -1,6 +1,6 @@
 package com.ceiba.lendings.infraestructura.controller;
 
-import com.ceiba.lendings.aplicacion.comando.command.PaymentCommand;
+import com.ceiba.lendings.aplicacion.command.PaymentCommand;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

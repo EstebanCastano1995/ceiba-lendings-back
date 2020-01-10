@@ -1,19 +1,30 @@
-package com.ceiba.lendings.aplicacion.comando.command;
+package com.ceiba.lendings.infraestructura.entidades;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
-public class LendingCommand {
-
+@Entity
+@Table(name="lending")
+public class LendingEntity {
+    @Id
+    @Column(name="id")
     private Integer id;
+    @Column(name="lending_return_date")
     private Date lending_return_date;
+    @Column(name="lending_total_amount")
     private Integer lending_total_amount;
+    @Column(name="lending_value")
     private Integer lending_value;
+    @Column(name="lending_date")
     private Date lending_date;
 
-    public LendingCommand() {
+    public LendingEntity() {
     }
 
-    public LendingCommand(Integer id, Date lending_return_date, Integer lending_total_amount, Integer lending_value, Date lending_date) {
+    public LendingEntity(Integer id, Date lending_return_date, Integer lending_total_amount, Integer lending_value, Date lending_date) {
         this.id = id;
         this.lending_return_date = lending_return_date;
         this.lending_total_amount = lending_total_amount;
@@ -63,7 +74,7 @@ public class LendingCommand {
 
     @Override
     public String toString() {
-        return "LendingCommand{" +
+        return "LendingEntity{" +
                 "id=" + id +
                 ", lending_return_date=" + lending_return_date +
                 ", lending_total_amount=" + lending_total_amount +

@@ -1,10 +1,9 @@
-package com.ceiba.lendings.aplicacion.comando.usecases.client;
+package com.ceiba.lendings.aplicacion.usecases.client;
 
-import com.ceiba.lendings.aplicacion.comando.command.ClientCommand;
-import com.ceiba.lendings.aplicacion.comando.services.ClientService;
-import com.ceiba.lendings.aplicacion.comando.usecases.UseCase;
+import com.ceiba.lendings.aplicacion.command.ClientCommand;
+import com.ceiba.lendings.aplicacion.services.ClientService;
+import com.ceiba.lendings.aplicacion.usecases.UseCase;
 import org.springframework.stereotype.Component;
-
 import javax.inject.Inject;
 import java.util.List;
 

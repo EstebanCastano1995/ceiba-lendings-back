@@ -1,4 +1,4 @@
-package com.ceiba.lendings.aplicacion.comando.command;
+package com.ceiba.lendings.aplicacion.command;
 
 import java.util.Date;
 

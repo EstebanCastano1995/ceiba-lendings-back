@@ -1,6 +1,6 @@
 package com.ceiba.lendings.infraestructura.controller;
 
-import com.ceiba.lendings.aplicacion.comando.command.LendingCommand;
+import com.ceiba.lendings.aplicacion.command.LendingCommand;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

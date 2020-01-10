@@ -1,16 +1,15 @@
-package com.ceiba.lendings.aplicacion.comando.usecases.client;
+package com.ceiba.lendings.aplicacion.usecases.client;
 
-import com.ceiba.lendings.aplicacion.comando.command.ClientCommand;
-import com.ceiba.lendings.aplicacion.comando.factory.ClientFactory;
-import com.ceiba.lendings.aplicacion.comando.services.ClientService;
-import com.ceiba.lendings.aplicacion.comando.usecases.UseCase;
+import com.ceiba.lendings.aplicacion.command.ClientCommand;
+import com.ceiba.lendings.aplicacion.factory.ClientFactory;
+import com.ceiba.lendings.aplicacion.services.ClientService;
+import com.ceiba.lendings.aplicacion.usecases.UseCase;
 import com.ceiba.lendings.dominio.entidades.Client;
 import org.springframework.stereotype.Component;
-
 import javax.inject.Inject;
 
 @Component
-public class CreateClientUseCase implements UseCase<ClientCommand, Integer> {
+public class CreateClientUseCase implements UseCase<ClientCommand, Boolean> {
 
     private final ClientFactory clientFactory;
 
@@ -23,7 +22,7 @@ public class CreateClientUseCase implements UseCase<ClientCommand, Integer> {
     }
 
     @Override
-    public Integer execute(ClientCommand input) throws Exception {
+    public Boolean execute(ClientCommand input) throws Exception {
         Client cliente = this.clientFactory.createClient(input);
         return clientService.createClient(cliente);
     }

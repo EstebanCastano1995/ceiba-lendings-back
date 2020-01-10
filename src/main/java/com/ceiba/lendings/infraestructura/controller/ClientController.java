@@ -1,10 +1,9 @@
 package com.ceiba.lendings.infraestructura.controller;
 
-import com.ceiba.lendings.aplicacion.comando.command.ClientCommand;
-import com.ceiba.lendings.aplicacion.comando.usecases.client.GetClientListUseCase;
+import com.ceiba.lendings.aplicacion.command.ClientCommand;
+import com.ceiba.lendings.aplicacion.usecases.client.GetClientListUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,7 +1,8 @@
 package com.ceiba.lendings.infraestructura.adaptador.repositorio.client;
 
-import com.ceiba.lendings.aplicacion.comando.command.ClientCommand;
-import com.ceiba.lendings.dominio.repositorio.ClientRepository;
+import com.ceiba.lendings.aplicacion.command.ClientCommand;
+import com.ceiba.lendings.dominio.entidades.Client;
+import com.ceiba.lendings.dominio.repositorio.client.ClientRepository;
 import com.ceiba.lendings.infraestructura.entidades.ClientEntity;
 import com.ceiba.lendings.infraestructura.jpa.ClientJPA;
 import org.modelmapper.ModelMapper;
@@ -26,5 +27,15 @@ public class ClientRepositoryJpa implements ClientRepository {
             list.add(modelMapper.map(clienteEntities.get(i),ClientCommand.class));
         }
         return list;
+    }
+
+    @Override
+    public Boolean createClient(Client client) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteClient(String client) {
+        return null;
     }
 }
