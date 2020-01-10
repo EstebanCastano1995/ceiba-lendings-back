@@ -31,11 +31,17 @@ public class ClientRepositoryJpa implements ClientRepository {
 
     @Override
     public Boolean createClient(Client client) {
-        return null;
+        ClientEntity clientEntity = modelMapper.map(client, ClientEntity.class);
+        return this.translateResult(this.clientJPA.saveClient(clientEntity.getId(),clientEntity.getName(),clientEntity.getAddress(),clientEntity.getPhone(),clientEntity.getBirth_date()));
+
     }
 
     @Override
     public Boolean deleteClient(String client) {
-        return null;
+        return this.translateResult(clientJPA.deleteClient(client));
+    }
+
+    private Boolean translateResult(Integer result) {
+      return result>1?true:false;
     }
 }

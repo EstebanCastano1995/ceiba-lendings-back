@@ -1,6 +1,8 @@
 package com.ceiba.lendings.infraestructura.controller;
 
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
+import com.ceiba.lendings.aplicacion.usecases.client.CreateClientUseCase;
+import com.ceiba.lendings.aplicacion.usecases.client.DeleteClientUseCase;
 import com.ceiba.lendings.aplicacion.usecases.client.GetClientListUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +14,15 @@ public class ClientController {
 
 	private GetClientListUseCase getClientListUseCase;
 
+	private CreateClientUseCase createClientUseCase;
+
+	private DeleteClientUseCase deleteClientUseCase;
+
 	@Autowired
-	public ClientController(GetClientListUseCase getClientListUseCase ) {
+	public ClientController(DeleteClientUseCase deleteClientUseCase,CreateClientUseCase createClientUseCase,GetClientListUseCase getClientListUseCase ) {
 		this.getClientListUseCase=getClientListUseCase;
+		this.createClientUseCase=createClientUseCase;
+		this.deleteClientUseCase=deleteClientUseCase;
 	}
 
 	@RequestMapping(value = "/client",method = RequestMethod.GET)
@@ -28,13 +36,23 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value = "/client",method = RequestMethod.POST)
-	public String createClient(@RequestBody ClientCommand clientCommand) {
-		return "CREATING CLIENT";
+	public Boolean createClient(@RequestBody ClientCommand clientCommand) {
+		try {
+			return this.createClientUseCase.execute(clientCommand);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@RequestMapping(value = "/client/delete",method = RequestMethod.POST)
-	public String deleteClient(@RequestParam String id) {
-		return "you want to delete "+id;
+	public Boolean deleteClient(@RequestParam String id) {
+		try {
+			return this.deleteClientUseCase.execute(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 }
