@@ -4,7 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="lending")
@@ -20,6 +24,13 @@ public class LendingEntity {
     private Integer lending_value;
     @Column(name="lending_date")
     private Date lending_date;
+
+    @OneToMany(mappedBy="lending_id")
+    private Set<PaymentEntity> paymententity;
+
+    @ManyToOne
+    @JoinColumn(name="client_id", nullable=false)
+    private ClientEntity client_id;
 
     public LendingEntity() {
     }

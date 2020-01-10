@@ -1,7 +1,10 @@
 package com.ceiba.lendings.infraestructura.entidades;
 
 import javax.persistence.*;
+
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="client")
@@ -23,6 +26,9 @@ public class ClientEntity {
     @Column(name="birth_date")
     @Temporal(TemporalType.DATE)
     private Date birth_date;
+
+    @OneToMany(mappedBy="client_id")
+    private Set<LendingEntity> lending;
 
     public ClientEntity() {
     }

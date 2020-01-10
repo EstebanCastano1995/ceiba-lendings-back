@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
@@ -17,6 +19,10 @@ public class PaymentEntity {
     private Integer payment_value;
     @Column(name="payment_date")
     private Date payment_date;
+
+    @ManyToOne
+    @JoinColumn(name="lending_id", nullable=false)
+    private LendingEntity lending_id;
 
     public PaymentEntity() {
     }
