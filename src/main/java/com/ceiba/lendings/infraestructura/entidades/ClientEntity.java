@@ -3,12 +3,17 @@ package com.ceiba.lendings.infraestructura.entidades;
 import javax.persistence.*;
 
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Table(name="client")
-public class ClientEntity {
+public class ClientEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name="id")
@@ -79,6 +84,10 @@ public class ClientEntity {
 
     public void setBirth_date(Date birth_date) {
         this.birth_date = birth_date;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     @Override

@@ -7,22 +7,30 @@ import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Table(name="lending")
-public class LendingEntity {
+public class LendingEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @Column(name="id")
     private Integer id;
     @Column(name="lending_return_date")
+    @Temporal(TemporalType.DATE)
     private Date lending_return_date;
     @Column(name="lending_total_amount")
     private Integer lending_total_amount;
     @Column(name="lending_value")
     private Integer lending_value;
     @Column(name="lending_date")
+    @Temporal(TemporalType.DATE)
     private Date lending_date;
 
     @OneToMany(mappedBy="lending_id")
@@ -81,6 +89,10 @@ public class LendingEntity {
 
     public void setLending_date(Date lending_date) {
         this.lending_date = lending_date;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     @Override

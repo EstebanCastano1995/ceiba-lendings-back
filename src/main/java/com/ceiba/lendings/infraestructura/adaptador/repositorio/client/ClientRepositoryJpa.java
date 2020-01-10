@@ -8,6 +8,8 @@ import com.ceiba.lendings.infraestructura.jpa.ClientJPA;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,7 @@ public class ClientRepositoryJpa implements ClientRepository {
 
     @Override
     public Boolean createClient(Client client) {
+
         ClientEntity clientEntity = modelMapper.map(client, ClientEntity.class);
         return this.translateResult(this.clientJPA.saveClient(clientEntity.getId(),clientEntity.getName(),clientEntity.getAddress(),clientEntity.getPhone(),clientEntity.getBirth_date()));
 

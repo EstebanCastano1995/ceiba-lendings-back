@@ -6,11 +6,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="payment")
-public class PaymentEntity {
+public class PaymentEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name="id")
@@ -18,6 +23,7 @@ public class PaymentEntity {
     @Column(name="payment_value")
     private Integer payment_value;
     @Column(name="payment_date")
+    @Temporal(TemporalType.DATE)
     private Date payment_date;
 
     @ManyToOne
@@ -55,6 +61,10 @@ public class PaymentEntity {
 
     public void setPayment_date(Date payment_date) {
         this.payment_date = payment_date;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     @Override
