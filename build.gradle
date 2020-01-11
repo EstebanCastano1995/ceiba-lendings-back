@@ -1,8 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.2.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'java'
-	id 'jacoco'
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'jacoco'
 }
 
 group = 'com.ceiba'
@@ -10,32 +10,36 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'javax.inject:javax.inject:1'
 
-	compile('org.modelmapper:modelmapper:1.1.0')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'javax.inject:javax.inject:1'
+    compile('org.modelmapper:modelmapper:1.1.0')
 
-	runtimeOnly 'org.postgresql:postgresql'
-	runtimeOnly 'com.h2database:h2'
+    //Database
+    implementation 'org.projectlombok:lombok:1.16.18'
+    runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'com.h2database:h2'
 
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-	testCompile "org.mockito:mockito-core:1.+"
-	testImplementation 'junit:junit:4.12'
+    //Test
+    testCompile('org.mockito:mockito-junit-jupiter:2.23.0')
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testCompile "org.mockito:mockito-core:1.+"
+    testImplementation 'junit:junit:4.12'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 task jacocoReport(dependsOn: test){
-	jacocoTestReport {reports {xml.enabled true}}
+    jacocoTestReport {reports {xml.enabled true}}
 }

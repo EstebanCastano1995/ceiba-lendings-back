@@ -3,7 +3,6 @@ package com.ceiba.lendings.infraestructura.jpa;
 import com.ceiba.lendings.infraestructura.entidades.PaymentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Date;
-import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Modifying;

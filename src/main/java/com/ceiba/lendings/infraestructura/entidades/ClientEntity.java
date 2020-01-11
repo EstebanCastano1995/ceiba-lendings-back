@@ -35,16 +35,6 @@ public class ClientEntity implements Serializable {
     @OneToMany(mappedBy="client_id")
     private Set<LendingEntity> lending;
 
-    public ClientEntity() {
-    }
-
-    public ClientEntity(Integer id, String name, String address, String phone, Date birth_date) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.birth_date = birth_date;
-    }
 
     public Integer getId() {
         return id;

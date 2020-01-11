@@ -1,12 +1,9 @@
 package com.ceiba.lendings.infraestructura.adaptador.repositorio.lending;
 
-import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.aplicacion.command.LendingCommand;
 import com.ceiba.lendings.dominio.entidades.Lending;
 import com.ceiba.lendings.dominio.repositorio.lending.LendingRepository;
-import com.ceiba.lendings.infraestructura.entidades.ClientEntity;
 import com.ceiba.lendings.infraestructura.entidades.LendingEntity;
-import com.ceiba.lendings.infraestructura.jpa.ClientJPA;
 import com.ceiba.lendings.infraestructura.jpa.LendingJPA;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
