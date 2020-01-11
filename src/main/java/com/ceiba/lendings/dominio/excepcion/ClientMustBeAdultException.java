@@ -1,6 +1,6 @@
 package com.ceiba.lendings.dominio.excepcion;
 
-public class ValidateClientException extends RuntimeException {
+public class ClientMustBeAdultException extends RuntimeException {
     /*
      *
      */
@@ -9,7 +9,7 @@ public class ValidateClientException extends RuntimeException {
      * Constructor
      * @param mensaje
      */
-    public ValidateClientException(String mensaje) {
+    public ClientMustBeAdultException(String mensaje) {
         super(mensaje);
     }
 }

@@ -16,6 +16,7 @@ public class Client {
     private static final String CLIENT_ADDRESS_REQUIRED = "La dirección del cliente es requerida ";
     private static final String CLIENT_PHONE_REQUIRED ="El telefono del cliente es requerido";
     private static final String CLIENT_BIRTH_DATE_REQUIRED = "La fecha de nacimiento del cliente es requerida";
+    private static final String CLIENT_MUST_BE_ADULT = "El cliente debe tener minimo 18 años";
 
     private Integer id;
     private String name;
@@ -29,6 +30,8 @@ public class Client {
         ClientValidator.validateField(address,CLIENT_ADDRESS_REQUIRED);
         ClientValidator.validateField(phone,CLIENT_PHONE_REQUIRED);
         ClientValidator.validateField(birth_date,CLIENT_BIRTH_DATE_REQUIRED);
+        ClientValidator.validateClientAge(birth_date,CLIENT_MUST_BE_ADULT);
+
         this.id = id;
         this.name = name;
         this.address = address;

@@ -32,16 +32,18 @@ public class LendingRepositoryJpa implements LendingRepository {
     @Override
     public Boolean createLending(Lending lending) {
         LendingEntity lendingEntity = modelMapper.map(lending, LendingEntity.class);
-        return this.translateResult(lendingJPA.saveLending(lendingEntity.getLending_return_date(),lendingEntity.getLending_total_amount(),lendingEntity.getLending_value(),lendingEntity.getLending_date()));
+        lendingJPA.save(lendingEntity);
+        return true;
     }
 
     @Override
     public Boolean updateLending(Lending lending) {
         LendingEntity lendingEntity = modelMapper.map(lending, LendingEntity.class);
-        return this.translateResult(lendingJPA.updateLending(lendingEntity.getLending_return_date(),lendingEntity.getLending_total_amount(),lendingEntity.getId()));
+        lendingJPA.save(lendingEntity);
+        return true;
     }
 
     private Boolean translateResult(Integer result) {
-        return result>1?true:false;
+        return result>0?true:false;
     }
 }

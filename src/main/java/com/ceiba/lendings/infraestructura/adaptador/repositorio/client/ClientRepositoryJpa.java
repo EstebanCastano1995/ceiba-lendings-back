@@ -5,6 +5,7 @@ import com.ceiba.lendings.dominio.entidades.Client;
 import com.ceiba.lendings.dominio.repositorio.client.ClientRepository;
 import com.ceiba.lendings.infraestructura.entidades.ClientEntity;
 import com.ceiba.lendings.infraestructura.jpa.ClientJPA;
+import com.ceiba.lendings.infraestructura.jpa.LendingJPA;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,9 @@ public class ClientRepositoryJpa implements ClientRepository {
 
     @Autowired
     private ClientJPA clientJPA;
+
+    @Autowired
+    private LendingJPA lendingJPA;
 
     private ModelMapper modelMapper = new ModelMapper();
 
@@ -32,15 +36,22 @@ public class ClientRepositoryJpa implements ClientRepository {
     @Override
     public Boolean createClient(Client client) {
         ClientEntity clientEntity = modelMapper.map(client, ClientEntity.class);
-        return this.translateResult(this.clientJPA.saveClient(clientEntity.getId(),clientEntity.getName(),clientEntity.getAddress(),clientEntity.getPhone(),clientEntity.getBirth_date()));
+        this.clientJPA.save(clientEntity);
+        return true;
     }
 
     @Override
-    public Boolean deleteClient(String client) {
-        return this.translateResult(clientJPA.deleteClient(client));
+    public Boolean deleteClient(Client client) {
+        ClientEntity clientEntity = modelMapper.map(client, ClientEntity.class);
+        if(lendingJPA.existsById(clientEntity.getId().longValue())) {
+            clientJPA.delete(clientEntity);
+            return true;
+        }
+        else
+            return false;
     }
 
     private Boolean translateResult(Integer result) {
-      return result>1?true:false;
+      return result>0?true:false;
     }
 }

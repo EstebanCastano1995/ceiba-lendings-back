@@ -20,7 +20,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Boolean deleteClient(String client) {
+    public Boolean deleteClient(Client client) {
         return clientRepository.deleteClient(client);
     }
 

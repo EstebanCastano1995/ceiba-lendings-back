@@ -1,20 +1,23 @@
 package com.ceiba.lendings.aplicacion.command;
 
+
 import java.util.Date;
 
 public class PaymentCommand {
 
     private Integer id;
-    private Integer payment_value;
+    private Double payment_value;
     private Date payment_date;
+    private LendingCommand lending_id;
 
     public PaymentCommand() {
     }
 
-    public PaymentCommand(Integer id, Integer payment_value, Date payment_date) {
+    public PaymentCommand(Integer id, Double payment_value, Date payment_date, LendingCommand lending_id) {
         this.id = id;
         this.payment_value = payment_value;
         this.payment_date = payment_date;
+        this.lending_id=lending_id;
     }
 
     public Integer getId() {
@@ -25,11 +28,11 @@ public class PaymentCommand {
         this.id = id;
     }
 
-    public Integer getPayment_value() {
+    public Double getPayment_value() {
         return payment_value;
     }
 
-    public void setPayment_value(Integer payment_value) {
+    public void setPayment_value(Double payment_value) {
         this.payment_value = payment_value;
     }
 
@@ -41,12 +44,21 @@ public class PaymentCommand {
         this.payment_date = payment_date;
     }
 
+    public LendingCommand getLending_id() {
+        return lending_id;
+    }
+
+    public void setLending_id(LendingCommand lending_id) {
+        this.lending_id = lending_id;
+    }
+
     @Override
     public String toString() {
         return "PaymentCommand{" +
                 "id=" + id +
                 ", payment_value=" + payment_value +
                 ", payment_date=" + payment_date +
+                ", lending_id=" + lending_id +
                 '}';
     }
 }

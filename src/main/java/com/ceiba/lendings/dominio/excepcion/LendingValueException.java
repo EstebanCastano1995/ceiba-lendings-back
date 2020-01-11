@@ -1,6 +1,6 @@
 package com.ceiba.lendings.dominio.excepcion;
 
-public class LendingNotExistException extends RuntimeException {
+public class LendingValueException extends RuntimeException {
     /*
      *
      */
@@ -9,7 +9,7 @@ public class LendingNotExistException extends RuntimeException {
      * Constructor
      * @param mensaje
      */
-    public LendingNotExistException(String mensaje) {
+    public LendingValueException(String mensaje) {
         super(mensaje);
     }
 }

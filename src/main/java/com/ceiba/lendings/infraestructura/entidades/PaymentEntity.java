@@ -1,15 +1,8 @@
 package com.ceiba.lendings.infraestructura.entidades;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="payment")
@@ -18,10 +11,11 @@ public class PaymentEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
     private Integer id;
     @Column(name="payment_value")
-    private Integer payment_value;
+    private Double payment_value;
     @Column(name="payment_date")
     @Temporal(TemporalType.DATE)
     private Date payment_date;
@@ -33,7 +27,7 @@ public class PaymentEntity implements Serializable {
     public PaymentEntity() {
     }
 
-    public PaymentEntity(Integer id, Integer payment_value, Date payment_date) {
+    public PaymentEntity(Integer id, Double payment_value, Date payment_date) {
         this.id = id;
         this.payment_value = payment_value;
         this.payment_date = payment_date;
@@ -47,11 +41,11 @@ public class PaymentEntity implements Serializable {
         this.id = id;
     }
 
-    public Integer getPayment_value() {
+    public Double getPayment_value() {
         return payment_value;
     }
 
-    public void setPayment_value(Integer payment_value) {
+    public void setPayment_value(Double payment_value) {
         this.payment_value = payment_value;
     }
 
@@ -67,12 +61,11 @@ public class PaymentEntity implements Serializable {
         return serialVersionUID;
     }
 
-    @Override
-    public String toString() {
-        return "PaymentEntity{" +
-                "id=" + id +
-                ", payment_value=" + payment_value +
-                ", payment_date=" + payment_date +
-                '}';
+    public LendingEntity getLending_id() {
+        return lending_id;
+    }
+
+    public void setLending_id(LendingEntity lending_id) {
+        this.lending_id = lending_id;
     }
 }

@@ -46,13 +46,12 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/client/delete",method = RequestMethod.POST)
-	public Boolean deleteClient(@RequestParam String id) {
+	public Boolean deleteClient(@RequestBody ClientCommand clientCommand) {
 		try {
-			return this.deleteClientUseCase.execute(id);
+			return this.deleteClientUseCase.execute(clientCommand);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
-	
 }

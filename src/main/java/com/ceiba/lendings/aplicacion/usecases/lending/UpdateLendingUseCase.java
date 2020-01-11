@@ -5,9 +5,12 @@ import com.ceiba.lendings.aplicacion.factory.LendingFactory;
 import com.ceiba.lendings.aplicacion.services.LendingService;
 import com.ceiba.lendings.aplicacion.usecases.UseCase;
 import com.ceiba.lendings.dominio.entidades.Lending;
+import org.springframework.stereotype.Component;
+
 import javax.inject.Inject;
 import java.util.List;
 
+@Component
 public class UpdateLendingUseCase implements UseCase<LendingCommand, Boolean> {
 
     private final LendingFactory lendingFactory;

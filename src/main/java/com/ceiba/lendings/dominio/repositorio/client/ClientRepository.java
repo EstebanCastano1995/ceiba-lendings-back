@@ -8,5 +8,5 @@ import java.util.List;
 public interface ClientRepository  {
     List<ClientCommand> getClients();
     Boolean createClient(Client client);
-    Boolean deleteClient(String client);
+    Boolean deleteClient(Client client);
 }

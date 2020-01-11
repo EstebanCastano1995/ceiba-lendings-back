@@ -19,10 +19,11 @@ public class PaymentRepositoryJpa implements PaymentRepository {
     @Override
     public Boolean createPayment(Payment payment) {
         PaymentEntity paymentEntity = modelMapper.map(payment, PaymentEntity.class);
-        return this.translateResult(paymentJPA.savePayment(paymentEntity.getPayment_value(),paymentEntity.getPayment_date()));
+        paymentJPA.save(paymentEntity);
+        return true;
     }
 
     private Boolean translateResult(Integer result) {
-        return result>1?true:false;
+        return result>0?true:false;
     }
 }

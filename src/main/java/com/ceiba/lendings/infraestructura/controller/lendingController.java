@@ -3,6 +3,7 @@ package com.ceiba.lendings.infraestructura.controller;
 import com.ceiba.lendings.aplicacion.command.LendingCommand;
 import com.ceiba.lendings.aplicacion.usecases.lending.CreateLendingUseCase;
 import com.ceiba.lendings.aplicacion.usecases.lending.GetLendingsListUseCase;
+import com.ceiba.lendings.aplicacion.usecases.lending.UpdateLendingUseCase;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,10 +19,13 @@ public class lendingController {
 
     private GetLendingsListUseCase getLendingsListUseCase;
 
+    private UpdateLendingUseCase updateLendingUseCase;
+
     @Autowired
-    public lendingController( CreateLendingUseCase createLendingUseCase,GetLendingsListUseCase getLendingsListUseCase) {
+    public lendingController( CreateLendingUseCase createLendingUseCase,GetLendingsListUseCase getLendingsListUseCase,UpdateLendingUseCase updateLendingUseCase) {
     this.createLendingUseCase=createLendingUseCase;
     this.getLendingsListUseCase=getLendingsListUseCase;
+    this.updateLendingUseCase=updateLendingUseCase;
     }
 
     @RequestMapping(value = "/lending",method = RequestMethod.GET)
@@ -38,6 +42,16 @@ public class lendingController {
     public Boolean createLending(@RequestBody LendingCommand lendingCommand) {
         try {
             return createLendingUseCase.execute(lendingCommand);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @RequestMapping(value = "/lending/update",method = RequestMethod.POST)
+    public Boolean updateLending(@RequestBody LendingCommand lendingCommand) {
+        try {
+            return updateLendingUseCase.execute(lendingCommand);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

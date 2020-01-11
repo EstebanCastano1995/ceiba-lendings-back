@@ -1,6 +1,6 @@
 package com.ceiba.lendings.dominio.excepcion;
 
-public class ValidateLendingException extends RuntimeException {
+public class LendingDateException extends RuntimeException {
     /*
      *
      */
@@ -9,7 +9,7 @@ public class ValidateLendingException extends RuntimeException {
      * Constructor
      * @param mensaje
      */
-    public ValidateLendingException(String mensaje) {
+    public LendingDateException(String mensaje) {
         super(mensaje);
     }
 }

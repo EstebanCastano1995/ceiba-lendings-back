@@ -7,5 +7,5 @@ import java.util.List;
 public interface ClientService {
     List<ClientCommand> getClients();
     Boolean createClient(Client client);
-    Boolean deleteClient(String client);
+    Boolean deleteClient(Client client);
 }
