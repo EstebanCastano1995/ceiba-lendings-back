@@ -54,7 +54,7 @@ public class PaymentEntity implements Serializable {
     }
 
     public void setPayment_date(Date payment_date) {
-        this.payment_date = payment_date;
+        this.payment_date = (Date)payment_date.clone();
     }
 
     public static long getSerialVersionUID() {

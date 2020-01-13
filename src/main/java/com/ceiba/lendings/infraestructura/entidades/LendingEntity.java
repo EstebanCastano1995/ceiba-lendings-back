@@ -65,7 +65,7 @@ public class LendingEntity implements Serializable {
     }
 
     public void setLending_return_date(Date lending_return_date) {
-        this.lending_return_date = lending_return_date;
+        this.lending_return_date = (Date)lending_return_date.clone();
     }
 
     public Double getLending_value() {
@@ -81,7 +81,7 @@ public class LendingEntity implements Serializable {
     }
 
     public void setLending_date(Date lending_date) {
-        this.lending_date = lending_date;
+        this.lending_date = (Date)lending_date.clone();;
     }
 
     public static long getSerialVersionUID() {

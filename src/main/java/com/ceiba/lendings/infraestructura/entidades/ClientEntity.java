@@ -83,7 +83,7 @@ public class ClientEntity implements Serializable {
     }
 
     public void setBirth_date(Date birth_date) {
-        this.birth_date = birth_date;
+        this.birth_date = (Date)birth_date.clone();;
     }
 
     public static long getSerialVersionUID() {
