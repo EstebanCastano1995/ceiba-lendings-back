@@ -1,6 +1,8 @@
 package com.ceiba.lendings.databuilder;
 
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
+
+import java.util.Calendar;
 import java.util.Date;
 
 public class ClientCommandTestDataBuilder {
@@ -12,11 +14,13 @@ public class ClientCommandTestDataBuilder {
     private Date birthdate;
 
     public ClientCommandTestDataBuilder() {
+        Calendar c = Calendar.getInstance();
+        c.set(1995, 9, 29, 0, 0);
         this.id=(long)11111;
         this.name="Esteban Castaño";
         this.address="Calle 10 # 24-26 B/Corbones";
         this.phone="3137340927";
-        this.birthdate=new Date();
+        this.birthdate=c.getTime();
     }
 
     public Long getId() {

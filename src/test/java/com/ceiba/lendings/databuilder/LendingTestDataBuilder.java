@@ -1,9 +1,7 @@
 package com.ceiba.lendings.databuilder;
 
-import com.ceiba.lendings.aplicacion.command.ClientCommand;
-import com.ceiba.lendings.aplicacion.command.LendingCommand;
+import com.ceiba.lendings.dominio.entidades.Client;
 import com.ceiba.lendings.dominio.entidades.Lending;
-
 import java.util.Date;
 
 public class LendingTestDataBuilder {
@@ -13,7 +11,7 @@ public class LendingTestDataBuilder {
     private Double lendingvalue;
     private Double lendingtotalamount;
     private Date lendingdate;
-    private ClientCommand clientid;
+    private Client clientid;
 
     public LendingTestDataBuilder() {
         this.id=(long)1;
@@ -21,7 +19,7 @@ public class LendingTestDataBuilder {
         this.lendingdate=new Date();
         this.lendingvalue=450000.0;
         this.lendingtotalamount=470000.0;
-        this.clientid = new ClientCommandTestDataBuilder().build();
+        this.clientid = new ClientTestDataBuilder().build();
     }
 
     public LendingTestDataBuilder withId(Long id) {
@@ -49,12 +47,12 @@ public class LendingTestDataBuilder {
         return this;
     }
 
-    public LendingTestDataBuilder clientId(ClientCommand clientCommand) {
-        this.clientid = clientCommand;
+    public LendingTestDataBuilder clientId(Client client) {
+        this.clientid = clientid;
         return this;
     }
 
     public Lending build() {
-        return new Lending(id, lendingreturndate, lendingtotalamount, lendingvalue, lendingdate,clientid);
+        return new Lending(id,lendingreturndate,lendingvalue,lendingdate,clientid);
     }
 }

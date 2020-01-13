@@ -23,7 +23,7 @@ public class Lending {
     private Date lendingdate;
     private Client clientid;
 
-    public Lending(Long id, Date lendingreturndate, Double lendingtotalamount, Double lendingvalue, Date lendingdate, ClientCommand clientid) {
+    public Lending() {
     }
 
     public Lending(Long id, Date lendingreturndate, Double lendingvalue, Date lendingdate, Client clientid) {
