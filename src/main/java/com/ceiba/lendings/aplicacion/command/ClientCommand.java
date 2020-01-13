@@ -10,6 +10,9 @@ public class ClientCommand {
     private String phone;
     private Date birthdate;
 
+    public ClientCommand() {
+    }
+
     public ClientCommand(Long idc, String namec, String addressc, String phonec, Date birthdatec) {
         this.id = idc;
         this.name = namec;
@@ -22,39 +25,39 @@ public class ClientCommand {
         return id;
     }
 
-    public void setId(Long ids) {
-        this.id = ids;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String names) {
-        this.name = names;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String addresss) {
-        this.address = addresss;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phones) {
-        this.phone = phones;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Date getBirthdate() {
         return (Date)birthdate.clone();
     }
 
-    public void setBirthdate(Date birthdates) {
-        this.birthdate = (Date)birthdates.clone();
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = (Date)birthdate.clone();
     }
 }

@@ -11,6 +11,9 @@ public class LendingCommand {
     private Date lendingdate;
     private ClientCommand clientid;
 
+    public LendingCommand() {
+    }
+
     public LendingCommand(Long idc, Date lendingreturndatec, Double lendingvaluec, Double lendingtotalamountc, Date lendingdatec, ClientCommand clientidc) {
         this.id = idc;
         this.lendingreturndate = (Date)lendingreturndatec.clone();

@@ -27,7 +27,7 @@ public class Client {
         ClientValidator.validateField(addressc,CLIENTADDRESSREQUIRED);
         ClientValidator.validateField(phonec,CLIENTPHONEREQUIRED);
         ClientValidator.validateField(birthdatec,CLIENTBIRTHDATEREQUIRED);
-        ClientValidator.validateClientAge(birthdate,CLIENTMUSTBEADULT);
+        ClientValidator.validateClientAge(birthdatec,CLIENTMUSTBEADULT);
 
         this.id = idc;
         this.name = namec;
