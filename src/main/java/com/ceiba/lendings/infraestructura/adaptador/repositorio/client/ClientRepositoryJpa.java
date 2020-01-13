@@ -36,6 +36,9 @@ public class ClientRepositoryJpa implements ClientRepository {
     @Override
     public Boolean createClient(Client client) {
         ClientEntity clientEntity = modelMapper.map(client, ClientEntity.class);
+        System.out.println("***********************");
+        System.out.println(clientEntity);
+        System.out.println(client);
         this.clientJPA.save(clientEntity);
         return true;
     }

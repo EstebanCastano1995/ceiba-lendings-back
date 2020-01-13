@@ -3,13 +3,7 @@ package com.ceiba.lendings.dominio.entidades;
 import java.util.Date;
 import com.ceiba.lendings.dominio.entidades.util.CalculateLendingTotalAmount;
 import com.ceiba.lendings.dominio.entidades.validators.LendingValidator;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
 public class Lending {
 
     private static final String LENDING_RETURN_DATE_REQUIRED ="La fecha de terminación del prestamo es requerida";
@@ -27,7 +21,10 @@ public class Lending {
     private Date lending_date;
     private Client client_id;
 
-    public Lending(Integer id, Date lending_return_date, Double lending_value, Date lending_date,Client cliend_id) {
+    public Lending() {
+    }
+
+    public Lending(Integer id, Date lending_return_date, Double lending_value, Date lending_date, Client cliend_id) {
         LendingValidator.validateField(lending_return_date,LENDING_RETURN_DATE_REQUIRED);
         LendingValidator.validateField(lending_value,LENDING_VALUE_REQUIRED);
         LendingValidator.validateField(lending_date,LENDING_DATE_REQUIRED);
@@ -42,5 +39,53 @@ public class Lending {
         this.lending_value = lending_value;
         this.lending_date = lending_date;
         this.client_id=cliend_id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Double getLending_total_amount() {
+        return lending_total_amount;
+    }
+
+    public void setLending_total_amount(Double lending_total_amount) {
+        this.lending_total_amount = lending_total_amount;
+    }
+
+    public Date getLending_return_date() {
+        return lending_return_date;
+    }
+
+    public void setLending_return_date(Date lending_return_date) {
+        this.lending_return_date = lending_return_date;
+    }
+
+    public Double getLending_value() {
+        return lending_value;
+    }
+
+    public void setLending_value(Double lending_value) {
+        this.lending_value = lending_value;
+    }
+
+    public Date getLending_date() {
+        return lending_date;
+    }
+
+    public void setLending_date(Date lending_date) {
+        this.lending_date = lending_date;
+    }
+
+    public Client getClient_id() {
+        return client_id;
+    }
+
+    public void setClient_id(Client client_id) {
+        this.client_id = client_id;
     }
 }

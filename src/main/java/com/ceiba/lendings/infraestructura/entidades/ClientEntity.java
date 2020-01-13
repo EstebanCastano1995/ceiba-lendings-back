@@ -79,4 +79,16 @@ public class ClientEntity implements Serializable {
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
+
+    @Override
+    public String toString() {
+        return "ClientEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birth_date=" + birth_date +
+                ", lending=" + lending +
+                '}';
+    }
 }

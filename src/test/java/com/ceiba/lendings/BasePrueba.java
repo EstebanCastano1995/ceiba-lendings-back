@@ -1,8 +1,8 @@
 package com.ceiba.lendings;
 
-import static org.junit.jupiter.api.Assertions.fail;
 import java.util.function.Supplier;
 import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class BasePrueba {
 

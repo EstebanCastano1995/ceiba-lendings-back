@@ -1,6 +1,5 @@
 package com.ceiba.lendings.dominio.entidades.util;
 
-import com.ceiba.lendings.dominio.excepcion.LendingDateException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;

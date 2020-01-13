@@ -10,25 +10,21 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
+    jcenter()
     mavenCentral()
-    maven { url 'https://repo.spring.io/milestone' }
-    maven { url 'https://repo.spring.io/snapshot' }
 }
 
-dependencies {
+apply plugin: 'java'
+apply plugin: 'jacoco'
 
+dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'javax.inject:javax.inject:1'
     compile('org.modelmapper:modelmapper:1.1.0')
-
-    //Database
-    implementation 'org.projectlombok:lombok:1.16.18'
+    testCompile('org.mockito:mockito-junit-jupiter:2.23.0')
     runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'com.h2database:h2'
-
-    //Test
-    testCompile('org.mockito:mockito-junit-jupiter:2.23.0')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -36,11 +32,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-/*
 test {
     useJUnitPlatform()
 }
 
 task jacocoReport(dependsOn: test){
     jacocoTestReport {reports {xml.enabled true}}
-}*/
+}
