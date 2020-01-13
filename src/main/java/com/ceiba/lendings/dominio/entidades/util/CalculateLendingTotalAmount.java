@@ -13,10 +13,6 @@ public class CalculateLendingTotalAmount {
     private static final Double OVERINTEREST=2.6;
     private static final Integer DAYSMONTH=30;
 
-    public CalculateLendingTotalAmount(){
-
-    }
-
     public static Double calculateLendingTotalAmount(Date lendingReturnDate,Date lendingDate, Double value) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(lendingDate);

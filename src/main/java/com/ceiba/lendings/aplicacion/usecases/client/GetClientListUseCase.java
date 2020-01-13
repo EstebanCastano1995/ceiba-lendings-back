@@ -1,6 +1,7 @@
 package com.ceiba.lendings.aplicacion.usecases.client;
 
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
+import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.services.ClientService;
 import com.ceiba.lendings.aplicacion.usecases.UseCase;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class GetClientListUseCase implements UseCase<Void, List<ClientCommand>> 
     private  ClientService clientService;
 
     @Override
-    public List<ClientCommand> execute(Void input) throws Exception {
+    public List<ClientCommand> execute(Void input)throws UseCaseException {
         return clientService.getClients();
     }
 }

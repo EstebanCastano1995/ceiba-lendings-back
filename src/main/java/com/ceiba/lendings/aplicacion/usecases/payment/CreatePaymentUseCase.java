@@ -1,6 +1,7 @@
 package com.ceiba.lendings.aplicacion.usecases.payment;
 
 import com.ceiba.lendings.aplicacion.command.PaymentCommand;
+import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.factory.PaymentFactory;
 import com.ceiba.lendings.aplicacion.services.PaymentService;
 import com.ceiba.lendings.aplicacion.usecases.UseCase;
@@ -22,7 +23,7 @@ public class CreatePaymentUseCase implements UseCase<PaymentCommand, Boolean> {
     }
 
     @Override
-    public Boolean execute(PaymentCommand input) throws Exception {
+    public Boolean execute(PaymentCommand input) throws UseCaseException {
         Payment payment = this.paymentFactory.createPayment(input);
         return paymentService.createPayment(payment);
     }

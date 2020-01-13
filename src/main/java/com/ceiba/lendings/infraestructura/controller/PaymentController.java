@@ -1,6 +1,7 @@
 package com.ceiba.lendings.infraestructura.controller;
 
 import com.ceiba.lendings.aplicacion.command.PaymentCommand;
+import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.usecases.payment.CreatePaymentUseCase;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import java.util.logging.Logger;
 @RestController
 public class PaymentController {
 
-    private static final Logger LOGGER = Logger.getLogger(lendingController.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(PaymentController.class.getName());
 
     private CreatePaymentUseCase createPaymentUseCase;
 
@@ -27,7 +28,7 @@ public class PaymentController {
     public Boolean createPayment(@RequestBody PaymentCommand paymentCommand) {
         try {
             return this.createPaymentUseCase.execute(paymentCommand);
-        } catch (Exception e) {
+        } catch (UseCaseException e) {
             LOGGER.log(Level.INFO,"Exception saving payments",e);
             return false;
         }

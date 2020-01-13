@@ -1,6 +1,7 @@
 package com.ceiba.lendings.aplicacion.usecases.client;
 
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
+import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.factory.ClientFactory;
 import com.ceiba.lendings.aplicacion.services.ClientService;
 import com.ceiba.lendings.aplicacion.usecases.UseCase;
@@ -22,7 +23,7 @@ public class CreateClientUseCase implements UseCase<ClientCommand, Boolean> {
     }
 
     @Override
-    public Boolean execute(ClientCommand input) throws Exception {
+    public Boolean execute(ClientCommand input) throws UseCaseException {
         Client cliente = this.clientFactory.createClient(input);
         return clientService.createClient(cliente);
     }

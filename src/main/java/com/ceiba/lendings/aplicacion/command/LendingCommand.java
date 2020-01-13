@@ -19,7 +19,7 @@ public class LendingCommand {
         this.lendingreturndate = (Date)lendingreturndate.clone();
         this.lendingvalue = lendingvalue;
         this.lendingtotalamount = lendingtotalamount;
-        this.lendingdate = (Date)lendingdate.clone();;
+        this.lendingdate = (Date)lendingdate.clone();
         this.clientid = clientid;
     }
 

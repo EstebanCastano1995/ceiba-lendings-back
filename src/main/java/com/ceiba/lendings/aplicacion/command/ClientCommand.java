@@ -13,12 +13,12 @@ public class ClientCommand {
     public ClientCommand() {
     }
 
-    public ClientCommand(Long id, String name, String address, String phone, Date birth_date) {
+    public ClientCommand(Long id, String name, String address, String phone, Date birthdate) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.birthdate = (Date)birth_date.clone();
+        this.birthdate = (Date)birthdate.clone();
     }
 
     public Long getId() {
@@ -57,8 +57,8 @@ public class ClientCommand {
         return (Date)birthdate.clone();
     }
 
-    public void setBirthdate(Date birth_date) {
-        this.birthdate = (Date)birth_date.clone();
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = (Date)birthdate.clone();
     }
 
     @Override

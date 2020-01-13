@@ -1,6 +1,7 @@
 package com.ceiba.lendings.infraestructura.controller;
 
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
+import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.usecases.client.CreateClientUseCase;
 import com.ceiba.lendings.aplicacion.usecases.client.DeleteClientUseCase;
 import com.ceiba.lendings.aplicacion.usecases.client.GetClientListUseCase;
@@ -33,7 +34,7 @@ public class ClientController {
 	public List<ClientCommand> getClients() {
 		try {
 			return this.getClientListUseCase.execute(null);
-		} catch (Exception e) {
+		} catch (UseCaseException e) {
 			LOGGER.log(Level.INFO,"Exception getting clients",e);
 			return new ArrayList<>();
 		}
@@ -43,7 +44,7 @@ public class ClientController {
 	public Boolean createClient(@RequestBody ClientCommand clientCommand) {
 		try {
 			return this.createClientUseCase.execute(clientCommand);
-		} catch (Exception e) {
+		} catch (UseCaseException e) {
 			LOGGER.log(Level.INFO,"Exception saving client",e);
 			return false;
 		}
@@ -53,7 +54,7 @@ public class ClientController {
 	public Boolean deleteClient(@RequestBody ClientCommand clientCommand) {
 		try {
 			return this.deleteClientUseCase.execute(clientCommand);
-		} catch (Exception e) {
+		} catch (UseCaseException e) {
 			LOGGER.log(Level.INFO,"Exception deleting client",e);
 			return false;
 		}
