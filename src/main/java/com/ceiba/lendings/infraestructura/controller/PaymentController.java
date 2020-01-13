@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @RestController
 public class PaymentController {
+
+    private static final Logger LOGGER = Logger.getLogger(lendingController.class.getName());
 
     private CreatePaymentUseCase createPaymentUseCase;
 
@@ -23,7 +28,7 @@ public class PaymentController {
         try {
             return this.createPaymentUseCase.execute(paymentCommand);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO,"Exception saving payments",e);
             return false;
         }
     }

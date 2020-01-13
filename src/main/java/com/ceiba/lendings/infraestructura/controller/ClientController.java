@@ -8,9 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 public class ClientController {
+
+	private static final Logger LOGGER = Logger.getLogger(ClientController.class.getName());
 
 	private GetClientListUseCase getClientListUseCase;
 
@@ -30,7 +34,7 @@ public class ClientController {
 		try {
 			return this.getClientListUseCase.execute(null);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO,"Exception getting clients",e);
 			return new ArrayList<>();
 		}
 	}
@@ -40,7 +44,7 @@ public class ClientController {
 		try {
 			return this.createClientUseCase.execute(clientCommand);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO,"Exception saving client",e);
 			return false;
 		}
 	}
@@ -50,7 +54,7 @@ public class ClientController {
 		try {
 			return this.deleteClientUseCase.execute(clientCommand);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO,"Exception deleting client",e);
 			return false;
 		}
 	}

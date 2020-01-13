@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 public class lendingController {
+
+    private static final Logger LOGGER = Logger.getLogger(lendingController.class.getName());
 
     private CreateLendingUseCase createLendingUseCase;
 
@@ -33,7 +37,7 @@ public class lendingController {
         try {
             return this.getLendingsListUseCase.execute(null);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO,"Exception getting lendings",e);
             return new ArrayList<>();
         }
     }
@@ -43,7 +47,7 @@ public class lendingController {
         try {
             return createLendingUseCase.execute(lendingCommand);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO,"Exception saving lending",e);
             return false;
         }
     }
@@ -53,7 +57,7 @@ public class lendingController {
         try {
             return updateLendingUseCase.execute(lendingCommand);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO,"Exception updating lending",e);
             return false;
         }
     }
