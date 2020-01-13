@@ -30,7 +30,7 @@ public class PaymentEntity implements Serializable {
     public PaymentEntity(Long id, Double payment_value, Date payment_date) {
         this.id = id;
         this.payment_value = payment_value;
-        this.payment_date = payment_date;
+        this.payment_date = (Date)payment_date.clone();
     }
 
     public Long getId() {
@@ -50,7 +50,7 @@ public class PaymentEntity implements Serializable {
     }
 
     public Date getPayment_date() {
-        return payment_date;
+        return (Date)payment_date.clone();
     }
 
     public void setPayment_date(Date payment_date) {

@@ -35,9 +35,9 @@ public class Lending {
 
         this.lending_total_amount= CalculateLendingTotalAmount.calculateLendingTotalAmount(lending_return_date,lending_date,lending_value);
         this.id = id;
-        this.lending_return_date = lending_return_date;
+        this.lending_return_date = (Date)lending_return_date.clone();
         this.lending_value = lending_value;
-        this.lending_date = lending_date;
+        this.lending_date = (Date)lending_date.clone();
         this.client_id=cliend_id;
     }
 
@@ -58,7 +58,7 @@ public class Lending {
     }
 
     public Date getLending_return_date() {
-        return lending_return_date;
+        return (Date)lending_return_date.clone();
     }
 
     public void setLending_return_date(Date lending_return_date) {
@@ -74,7 +74,7 @@ public class Lending {
     }
 
     public Date getLending_date() {
-        return lending_date;
+        return (Date)lending_date.clone();
     }
 
     public void setLending_date(Date lending_date) {

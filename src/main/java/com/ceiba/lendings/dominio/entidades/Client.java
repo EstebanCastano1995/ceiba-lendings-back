@@ -33,7 +33,7 @@ public class Client {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.birth_date = birth_date;
+        this.birth_date = (Date)birth_date.clone();
     }
 
     public Long getId() {
@@ -69,7 +69,7 @@ public class Client {
     }
 
     public Date getBirth_date() {
-        return birth_date;
+        return (Date)birth_date.clone();
     }
 
     public void setBirth_date(Date birth_date) {

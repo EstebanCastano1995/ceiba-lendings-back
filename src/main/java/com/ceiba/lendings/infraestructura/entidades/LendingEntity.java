@@ -38,10 +38,10 @@ public class LendingEntity implements Serializable {
 
     public LendingEntity(Long id,Double lending_total_amount, Date lending_return_date,  Double lending_value, Date lending_date) {
         this.id = id;
-        this.lending_return_date = lending_return_date;
+        this.lending_return_date = (Date)lending_return_date.clone();
         this.lending_total_amount = lending_total_amount;
         this.lending_value = lending_value;
-        this.lending_date = lending_date;
+        this.lending_date = (Date)lending_date.clone();
     }
 
     public Double getLending_total_amount() {
@@ -61,7 +61,7 @@ public class LendingEntity implements Serializable {
     }
 
     public Date getLending_return_date() {
-        return lending_return_date;
+        return (Date)lending_return_date.clone();
     }
 
     public void setLending_return_date(Date lending_return_date) {
@@ -77,7 +77,7 @@ public class LendingEntity implements Serializable {
     }
 
     public Date getLending_date() {
-        return lending_date;
+        return (Date)lending_date.clone();
     }
 
     public void setLending_date(Date lending_date) {

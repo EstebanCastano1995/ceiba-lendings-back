@@ -35,6 +35,16 @@ public class ClientEntity implements Serializable {
     @OneToMany(mappedBy="client_id")
     private Set<LendingEntity> lending;
 
+    public ClientEntity() {
+    }
+
+    public ClientEntity(Long id, String name, String address, String phone, Date birth_date) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.birth_date = (Date)birth_date.clone();
+    }
 
     public Long getId() {
         return id;
@@ -69,7 +79,7 @@ public class ClientEntity implements Serializable {
     }
 
     public Date getBirth_date() {
-        return birth_date;
+        return (Date)birth_date.clone();
     }
 
     public void setBirth_date(Date birth_date) {

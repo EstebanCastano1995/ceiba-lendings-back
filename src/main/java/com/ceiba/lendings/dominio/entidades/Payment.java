@@ -24,7 +24,7 @@ public class Payment {
 
         this.id = id;
         this.payment_value = payment_value;
-        this.payment_date = payment_date;
+        this.payment_date = (Date)payment_date.clone();
         this.lending_id=lending_id;
     }
 
@@ -45,7 +45,7 @@ public class Payment {
     }
 
     public Date getPayment_date() {
-        return payment_date;
+        return (Date)payment_date.clone();
     }
 
     public void setPayment_date(Date payment_date) {
