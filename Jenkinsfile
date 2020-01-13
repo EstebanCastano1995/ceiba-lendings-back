@@ -31,14 +31,14 @@ pipeline{
                            steps {
                               echo "------------>Building project<------------"
                               sh 'gradle --b ./build.gradle clean'
-                              sh 'gradle --b ./build.gradle build -x test'
+                              sh 'gradle --b ./build.gradle build'
                            }
                         }
                         stage('Compile & Unit Tests') {
                            steps {
                               echo "--------------->Unit Tests<--------"
-                              //sh 'gradle --b ./build.gradle test'
-                              //sh 'gradle --b ./build.gradle jacocoTestReport'
+                              sh 'gradle --b ./build.gradle test'
+                              sh 'gradle --b ./build.gradle jacocoTestReport'
                            }
                         }
                         stage('Static Code Analysys'){
