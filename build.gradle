@@ -18,13 +18,18 @@ apply plugin: 'java'
 apply plugin: 'jacoco'
 
 dependencies {
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'javax.inject:javax.inject:1'
     compile('org.modelmapper:modelmapper:1.1.0')
-    testCompile('org.mockito:mockito-junit-jupiter:2.23.0')
+
+    //Database
     runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'com.h2database:h2'
+
+    //Test
+    testCompile('org.mockito:mockito-junit-jupiter:2.23.0')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
