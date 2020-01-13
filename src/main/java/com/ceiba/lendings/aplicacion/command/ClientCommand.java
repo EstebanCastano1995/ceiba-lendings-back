@@ -10,9 +10,6 @@ public class ClientCommand {
     private String phone;
     private Date birthdate;
 
-    public ClientCommand() {
-    }
-
     public ClientCommand(Long id, String name, String address, String phone, Date birthdate) {
         this.id = id;
         this.name = name;

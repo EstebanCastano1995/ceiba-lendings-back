@@ -5,9 +5,9 @@ import com.ceiba.lendings.dominio.entidades.validators.PaymentValidator;
 
 public class Payment {
 
-    private static final String PAYMENT_VALUE_REQUIRED ="El valor del pago es requerido";
-    private static final String PAYMENT_DATE_REQUIRED = "La fecha del pago es requerida";
-    private static final String PAYMENT_LENDING_REQUIRED = "El prestamo del pago es requerido";
+    private static final String PAYMENTVALUEREQUIRED ="El valor del pago es requerido";
+    private static final String PAYMENTDATEREQUIRED = "La fecha del pago es requerida";
+    private static final String PAYMENTLENDINGREQUIRED = "El prestamo del pago es requerido";
 
     private Long id;
     private Double paymentvalue;
@@ -18,9 +18,9 @@ public class Payment {
     }
 
     public Payment(Long id, Double paymentvalue, Date paymentdate, Lending lendingid) {
-        PaymentValidator.validateField(paymentdate,PAYMENT_DATE_REQUIRED);
-        PaymentValidator.validateField(paymentvalue,PAYMENT_VALUE_REQUIRED);
-        PaymentValidator.validateField(lendingid,PAYMENT_LENDING_REQUIRED);
+        PaymentValidator.validateField(paymentdate,PAYMENTDATEREQUIRED);
+        PaymentValidator.validateField(paymentvalue,PAYMENTVALUEREQUIRED);
+        PaymentValidator.validateField(lendingid,PAYMENTLENDINGREQUIRED);
 
         this.id = id;
         this.paymentvalue = paymentvalue;

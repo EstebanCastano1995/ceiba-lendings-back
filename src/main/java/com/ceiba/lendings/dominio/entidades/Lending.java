@@ -7,13 +7,13 @@ import com.ceiba.lendings.dominio.entidades.validators.LendingValidator;
 
 public class Lending {
 
-    private static final String LENDING_RETURN_DATE_REQUIRED ="La fecha de terminación del prestamo es requerida";
-    private static final String LENDING_VALUE_REQUIRED ="El valor del prestamo es requerido";
-    private static final String LENDING_DATE_REQUIRED = "La fecha del prestamo es requerida";
-    private static final String LENDING_CLIENT_REQUIRED = "El cliente del prestamo es requerido";
+    private static final String LENDINGRETURNDATEREQUIRED ="La fecha de terminación del prestamo es requerida";
+    private static final String LENDINGVALUEREQUIRED ="El valor del prestamo es requerido";
+    private static final String LENDINGDATEREQUIRED = "La fecha del prestamo es requerida";
+    private static final String LENDINGCLIENTREQUIRED = "El cliente del prestamo es requerido";
 
-    private static final String LENDING_LIMIT_VALUE = "El prestamo debe estar entre 100000 COP y 500000 COP";
-    private static final String LENDING_DATE_RESTRICTION = "Los dias domingos no se hacen prestamos";
+    private static final String LENDINGLIMITVALUE = "El prestamo debe estar entre 100000 COP y 500000 COP";
+    private static final String LENDINGDATERESTRICTION = "Los dias domingos no se hacen prestamos";
 
     private Long id;
     private Date lendingreturndate;
@@ -26,13 +26,13 @@ public class Lending {
     }
 
     public Lending(Long id, Date lendingreturndate, Double lendingvalue, Date lendingdate, Client clientid) {
-        LendingValidator.validateField(lendingreturndate,LENDING_RETURN_DATE_REQUIRED);
-        LendingValidator.validateField(lendingvalue,LENDING_VALUE_REQUIRED);
-        LendingValidator.validateField(lendingdate,LENDING_DATE_REQUIRED);
-        LendingValidator.validateField(clientid,LENDING_CLIENT_REQUIRED);
+        LendingValidator.validateField(lendingreturndate,LENDINGRETURNDATEREQUIRED);
+        LendingValidator.validateField(lendingvalue,LENDINGVALUEREQUIRED);
+        LendingValidator.validateField(lendingdate,LENDINGDATEREQUIRED);
+        LendingValidator.validateField(clientid,LENDINGCLIENTREQUIRED);
 
-        LendingValidator.validateLendingValue(lendingvalue,LENDING_LIMIT_VALUE);
-        LendingValidator.validateLendingDate(lendingdate,LENDING_DATE_RESTRICTION);
+        LendingValidator.validateLendingValue(lendingvalue,LENDINGLIMITVALUE);
+        LendingValidator.validateLendingDate(lendingdate,LENDINGDATERESTRICTION);
 
         this.lendingtotalamount= CalculateLendingTotalAmount.calculateLendingTotalAmount(lendingreturndate,lendingdate,lendingvalue);
         this.id = id;

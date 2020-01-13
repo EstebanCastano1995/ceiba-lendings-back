@@ -5,12 +5,12 @@ import com.ceiba.lendings.dominio.entidades.validators.ClientValidator;
 
 public class Client {
 
-    private static final String CLIENT_ID_REQUIRED ="La identificación del cliente es requerida";
-    private static final String CLIENT_NAME_REQUIRED ="El nombre del cliente es requerido";
-    private static final String CLIENT_ADDRESS_REQUIRED = "La dirección del cliente es requerida ";
-    private static final String CLIENT_PHONE_REQUIRED ="El telefono del cliente es requerido";
-    private static final String CLIENT_BIRTH_DATE_REQUIRED = "La fecha de nacimiento del cliente es requerida";
-    private static final String CLIENT_MUST_BE_ADULT = "El cliente debe tener minimo 18 años";
+    private static final String CLIENTIDREQUIRED ="La identificación del cliente es requerida";
+    private static final String CLIENTNAMEREQUIRED ="El nombre del cliente es requerido";
+    private static final String CLIENTADDRESSREQUIRED = "La dirección del cliente es requerida ";
+    private static final String CLIENTPHONEREQUIRED ="El telefono del cliente es requerido";
+    private static final String CLIENTBIRTHDATEREQUIRED = "La fecha de nacimiento del cliente es requerida";
+    private static final String CLIENTMUSTBEADULT = "El cliente debe tener minimo 18 años";
 
     private Long id;
     private String name;
@@ -22,12 +22,12 @@ public class Client {
     }
 
     public Client(Long id, String name, String address, String phone, Date birthdate) {
-        ClientValidator.validateField(name,CLIENT_NAME_REQUIRED);
-        ClientValidator.validateField(id,CLIENT_ID_REQUIRED);
-        ClientValidator.validateField(address,CLIENT_ADDRESS_REQUIRED);
-        ClientValidator.validateField(phone,CLIENT_PHONE_REQUIRED);
-        ClientValidator.validateField(birthdate,CLIENT_BIRTH_DATE_REQUIRED);
-        ClientValidator.validateClientAge(birthdate,CLIENT_MUST_BE_ADULT);
+        ClientValidator.validateField(name,CLIENTNAMEREQUIRED);
+        ClientValidator.validateField(id,CLIENTIDREQUIRED);
+        ClientValidator.validateField(address,CLIENTADDRESSREQUIRED);
+        ClientValidator.validateField(phone,CLIENTPHONEREQUIRED);
+        ClientValidator.validateField(birthdate,CLIENTBIRTHDATEREQUIRED);
+        ClientValidator.validateClientAge(birthdate,CLIENTMUSTBEADULT);
 
         this.id = id;
         this.name = name;

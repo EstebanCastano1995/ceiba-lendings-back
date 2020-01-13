@@ -9,9 +9,6 @@ public class PaymentCommand {
     private Date paymentdate;
     private LendingCommand lendingid;
 
-    public PaymentCommand() {
-    }
-
     public PaymentCommand(Long id, Double paymentvalue, Date paymentdate, LendingCommand lendingid) {
         this.id = id;
         this.paymentvalue = paymentvalue;
