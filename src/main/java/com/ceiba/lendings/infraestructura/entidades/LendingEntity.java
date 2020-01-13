@@ -36,12 +36,12 @@ public class LendingEntity implements Serializable {
     public LendingEntity() {
     }
 
-    public LendingEntity(Long id,Double lendingtotalamount, Date lendingreturndate,  Double lendingvalue, Date lendingdate) {
-        this.id = id;
-        this.lendingreturndate = (Date)lendingreturndate.clone();
-        this.lendingtotalamount = lendingtotalamount;
-        this.lendingvalue = lendingvalue;
-        this.lendingdate = (Date)lendingdate.clone();
+    public LendingEntity(Long idc,Double lendingtotalamountc, Date lendingreturndatec,  Double lendingvaluec, Date lendingdatec) {
+        this.id = idc;
+        this.lendingreturndate = (Date)lendingreturndatec.clone();
+        this.lendingtotalamount = lendingtotalamountc;
+        this.lendingvalue = lendingvaluec;
+        this.lendingdate = (Date)lendingdatec.clone();
     }
 
     public Long getId() {

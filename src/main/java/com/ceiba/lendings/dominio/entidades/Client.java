@@ -21,19 +21,19 @@ public class Client {
     public Client() {
     }
 
-    public Client(Long id, String name, String address, String phone, Date birthdate) {
-        ClientValidator.validateField(name,CLIENTNAMEREQUIRED);
-        ClientValidator.validateField(id,CLIENTIDREQUIRED);
-        ClientValidator.validateField(address,CLIENTADDRESSREQUIRED);
-        ClientValidator.validateField(phone,CLIENTPHONEREQUIRED);
-        ClientValidator.validateField(birthdate,CLIENTBIRTHDATEREQUIRED);
+    public Client(Long idc, String namec, String addressc, String phonec, Date birthdatec) {
+        ClientValidator.validateField(namec,CLIENTNAMEREQUIRED);
+        ClientValidator.validateField(idc,CLIENTIDREQUIRED);
+        ClientValidator.validateField(addressc,CLIENTADDRESSREQUIRED);
+        ClientValidator.validateField(phonec,CLIENTPHONEREQUIRED);
+        ClientValidator.validateField(birthdatec,CLIENTBIRTHDATEREQUIRED);
         ClientValidator.validateClientAge(birthdate,CLIENTMUSTBEADULT);
 
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.birthdate = (Date)birthdate.clone();
+        this.id = idc;
+        this.name = namec;
+        this.address = addressc;
+        this.phone = phonec;
+        this.birthdate = (Date)birthdatec.clone();
     }
 
     public Long getId() {

@@ -27,10 +27,10 @@ public class PaymentEntity implements Serializable {
     public PaymentEntity() {
     }
 
-    public PaymentEntity(Long id, Double paymentvalue, Date paymentdate) {
-        this.id = id;
-        this.paymentvalue = paymentvalue;
-        this.paymentdate = (Date)paymentdate.clone();
+    public PaymentEntity(Long idc, Double paymentvaluec, Date paymentdatec) {
+        this.id = idc;
+        this.paymentvalue = paymentvaluec;
+        this.paymentdate = (Date)paymentdatec.clone();
     }
 
     public Long getId() {

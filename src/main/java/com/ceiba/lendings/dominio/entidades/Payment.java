@@ -17,15 +17,15 @@ public class Payment {
     public Payment() {
     }
 
-    public Payment(Long id, Double paymentvalue, Date paymentdate, Lending lendingid) {
-        PaymentValidator.validateField(paymentdate,PAYMENTDATEREQUIRED);
-        PaymentValidator.validateField(paymentvalue,PAYMENTVALUEREQUIRED);
-        PaymentValidator.validateField(lendingid,PAYMENTLENDINGREQUIRED);
+    public Payment(Long idc, Double paymentvaluec, Date paymentdatec, Lending lendingidc) {
+        PaymentValidator.validateField(paymentdatec,PAYMENTDATEREQUIRED);
+        PaymentValidator.validateField(paymentvaluec,PAYMENTVALUEREQUIRED);
+        PaymentValidator.validateField(lendingidc,PAYMENTLENDINGREQUIRED);
 
-        this.id = id;
-        this.paymentvalue = paymentvalue;
-        this.paymentdate = (Date)paymentdate.clone();
-        this.lendingid=lendingid;
+        this.id = idc;
+        this.paymentvalue = paymentvaluec;
+        this.paymentdate = (Date)paymentdatec.clone();
+        this.lendingid=lendingidc;
     }
 
     public Long getId() {

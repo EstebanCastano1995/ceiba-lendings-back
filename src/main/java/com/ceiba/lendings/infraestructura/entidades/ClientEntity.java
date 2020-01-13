@@ -38,12 +38,12 @@ public class ClientEntity implements Serializable {
     public ClientEntity() {
     }
 
-    public ClientEntity(Long id, String name, String address, String phone, Date birthdate) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.birthdate = (Date)birthdate.clone();
+    public ClientEntity(Long idc, String namec, String addressc, String phonec, Date birthdatec) {
+        this.id = idc;
+        this.name = namec;
+        this.address = addressc;
+        this.phone = phonec;
+        this.birthdate = (Date)birthdatec.clone();
     }
 
     public Long getId() {
