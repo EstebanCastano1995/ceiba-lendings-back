@@ -2,6 +2,7 @@ package com.ceiba.lendings.dominio.entidades;
 
 import java.util.Date;
 
+import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.dominio.entidades.util.CalculateLendingTotalAmount;
 import com.ceiba.lendings.dominio.entidades.validators.LendingValidator;
 
@@ -22,7 +23,7 @@ public class Lending {
     private Date lendingdate;
     private Client clientid;
 
-    public Lending() {
+    public Lending(Long id, Date lendingreturndate, Double lendingtotalamount, Double lendingvalue, Date lendingdate, ClientCommand clientid) {
     }
 
     public Lending(Long id, Date lendingreturndate, Double lendingvalue, Date lendingdate, Client clientid) {
