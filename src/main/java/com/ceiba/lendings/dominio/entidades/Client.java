@@ -69,10 +69,10 @@ public class Client {
     }
 
     public Date getBirthdate() {
-        return birthdate;
+        return (Date)birthdate.clone();
     }
 
     public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+        this.birthdate = (Date)birthdate.clone();
     }
 }
