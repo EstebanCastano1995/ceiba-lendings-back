@@ -20,10 +20,10 @@ public class PaymentRepositoryJpa implements PaymentRepository {
     public Boolean createPayment(Payment payment) {
         PaymentEntity paymentEntity = modelMapper.map(payment, PaymentEntity.class);
         paymentJPA.save(paymentEntity);
-        return true;
+        return this.checkIfExists(paymentEntity.getId());
     }
 
-    private Boolean translateResult(Integer result) {
-        return result>0?true:false;
+    private Boolean checkIfExists(Long id) {
+        return paymentJPA.existsById(id);
     }
 }

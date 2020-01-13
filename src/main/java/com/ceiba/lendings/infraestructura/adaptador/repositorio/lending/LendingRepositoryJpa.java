@@ -33,17 +33,17 @@ public class LendingRepositoryJpa implements LendingRepository {
     public Boolean createLending(Lending lending) {
         LendingEntity lendingEntity = modelMapper.map(lending, LendingEntity.class);
         lendingJPA.save(lendingEntity);
-        return true;
+        return this.checkIfExists(lendingEntity.getId());
     }
 
     @Override
     public Boolean updateLending(Lending lending) {
         LendingEntity lendingEntity = modelMapper.map(lending, LendingEntity.class);
         lendingJPA.save(lendingEntity);
-        return true;
+        return this.checkIfExists(lendingEntity.getId());
     }
 
-    private Boolean translateResult(Integer result) {
-        return result>0?true:false;
+    private Boolean checkIfExists(Long id) {
+        return lendingJPA.existsById(id);
     }
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ClientCommand {
 
-    private Integer id;
+    private Long id;
     private String name;
     private String address;
     private String phone;
@@ -13,7 +13,7 @@ public class ClientCommand {
     public ClientCommand() {
     }
 
-    public ClientCommand(Integer id, String name, String address, String phone, Date birth_date) {
+    public ClientCommand(Long id, String name, String address, String phone, Date birth_date) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -21,11 +21,11 @@ public class ClientCommand {
         this.birth_date = birth_date;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

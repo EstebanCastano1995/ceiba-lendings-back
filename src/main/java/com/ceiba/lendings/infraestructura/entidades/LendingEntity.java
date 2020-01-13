@@ -14,7 +14,7 @@ public class LendingEntity implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
-    private Integer id;
+    private Long id;
     @Column(name="lending_total_amount")
     private Double lending_total_amount;
     @Column(name="lending_return_date")
@@ -36,7 +36,7 @@ public class LendingEntity implements Serializable {
     public LendingEntity() {
     }
 
-    public LendingEntity(Integer id,Double lending_total_amount, Date lending_return_date,  Double lending_value, Date lending_date) {
+    public LendingEntity(Long id,Double lending_total_amount, Date lending_return_date,  Double lending_value, Date lending_date) {
         this.id = id;
         this.lending_return_date = lending_return_date;
         this.lending_total_amount = lending_total_amount;
@@ -52,11 +52,11 @@ public class LendingEntity implements Serializable {
         this.lending_total_amount = lending_total_amount;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -12,7 +12,7 @@ public class Client {
     private static final String CLIENT_BIRTH_DATE_REQUIRED = "La fecha de nacimiento del cliente es requerida";
     private static final String CLIENT_MUST_BE_ADULT = "El cliente debe tener minimo 18 años";
 
-    private Integer id;
+    private Long id;
     private String name;
     private String address;
     private String phone;
@@ -21,7 +21,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(Integer id, String name, String address, String phone, Date birth_date) {
+    public Client(Long id, String name, String address, String phone, Date birth_date) {
         ClientValidator.validateField(name,CLIENT_NAME_REQUIRED);
         ClientValidator.validateField(id,CLIENT_ID_REQUIRED);
         ClientValidator.validateField(address,CLIENT_ADDRESS_REQUIRED);
@@ -36,11 +36,11 @@ public class Client {
         this.birth_date = birth_date;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

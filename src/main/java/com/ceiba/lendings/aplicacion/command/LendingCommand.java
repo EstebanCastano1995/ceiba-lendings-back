@@ -1,11 +1,10 @@
 package com.ceiba.lendings.aplicacion.command;
 
-
 import java.util.Date;
 
 public class LendingCommand {
 
-    private Integer id;
+    private Long id;
     private Date lending_return_date;
     private Double lending_value;
     private Double lending_total_amount;
@@ -15,7 +14,7 @@ public class LendingCommand {
     public LendingCommand() {
     }
 
-    public LendingCommand(Integer id, Date lending_return_date, Double lending_value, Date lending_date,ClientCommand client_id) {
+    public LendingCommand(Long id, Date lending_return_date, Double lending_value, Date lending_date,ClientCommand client_id) {
         this.id = id;
         this.lending_return_date = lending_return_date;
         this.lending_value = lending_value;
@@ -23,11 +22,11 @@ public class LendingCommand {
         this.client_id=client_id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

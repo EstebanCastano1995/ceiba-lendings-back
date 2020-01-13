@@ -13,7 +13,7 @@ public class PaymentEntity implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
-    private Integer id;
+    private Long id;
     @Column(name="payment_value")
     private Double payment_value;
     @Column(name="payment_date")
@@ -27,17 +27,17 @@ public class PaymentEntity implements Serializable {
     public PaymentEntity() {
     }
 
-    public PaymentEntity(Integer id, Double payment_value, Date payment_date) {
+    public PaymentEntity(Long id, Double payment_value, Date payment_date) {
         this.id = id;
         this.payment_value = payment_value;
         this.payment_date = payment_date;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

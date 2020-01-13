@@ -14,7 +14,7 @@ public class Lending {
     private static final String LENDING_LIMIT_VALUE = "El prestamo debe estar entre 100000 COP y 500000 COP";
     private static final String LENDING_DATE_RESTRICTION = "Los dias domingos no se hacen prestamos";
 
-    private Integer id;
+    private Long id;
     private Double lending_total_amount;
     private Date lending_return_date;
     private Double lending_value;
@@ -24,7 +24,7 @@ public class Lending {
     public Lending() {
     }
 
-    public Lending(Integer id, Date lending_return_date, Double lending_value, Date lending_date, Client cliend_id) {
+    public Lending(Long id, Date lending_return_date, Double lending_value, Date lending_date, Client cliend_id) {
         LendingValidator.validateField(lending_return_date,LENDING_RETURN_DATE_REQUIRED);
         LendingValidator.validateField(lending_value,LENDING_VALUE_REQUIRED);
         LendingValidator.validateField(lending_date,LENDING_DATE_REQUIRED);
@@ -41,11 +41,11 @@ public class Lending {
         this.client_id=cliend_id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
