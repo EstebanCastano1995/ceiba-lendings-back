@@ -1,5 +1,7 @@
 package com.ceiba.lendings.aplicacion.usecases;
 
+import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
+
 /**
  * This define the methods for an Use Case service in the architecture.
  * @param <argument>> Define the object that execute method receive to work properly
@@ -11,5 +13,5 @@ public interface UseCase<argument, result> {
      * @return resultado que depende de la implementación del caso de uso
      * @throws Exception
      */
-    public result  execute(argument input) throws Exception;
+    public result  execute(argument input) throws UseCaseException;
 }
