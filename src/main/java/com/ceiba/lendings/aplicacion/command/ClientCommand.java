@@ -22,40 +22,40 @@ public class ClientCommand {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long ID) {
+        this.id = ID;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String NAME) {
+        this.name = NAME;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String ADDRESS) {
+        this.address = ADDRESS;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String PHONE) {
+        this.phone = PHONE;
     }
 
     public Date getBirthdate() {
         return (Date)birthdate.clone();
     }
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = (Date)birthdate.clone();
+    public void setBirthdate(Date BIRTHDATE) {
+        this.birthdate = (Date)BIRTHDATE.clone();
     }
 
     @Override
