@@ -11,6 +11,9 @@ import java.util.Date;
 
 public class ClientValidator {
 
+    private ClientValidator() {
+    }
+
     public static void validateField(Object valor, String mensaje) {
         if(valor==null)
             throw new RequiredFieldException(mensaje);

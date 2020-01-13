@@ -9,6 +9,9 @@ import java.util.Date;
 
 public class LendingValidator {
 
+    private LendingValidator() {
+    }
+
     public static void validateField(Object valor, String mensaje) {
         if(valor==null)
             throw new RequiredFieldException(mensaje);
