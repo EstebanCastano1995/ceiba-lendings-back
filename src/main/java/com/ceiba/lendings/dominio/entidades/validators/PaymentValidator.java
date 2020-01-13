@@ -2,7 +2,7 @@ package com.ceiba.lendings.dominio.entidades.validators;
 
 import com.ceiba.lendings.dominio.excepcion.RequiredFieldException;
 
-public class PaymentValidator {
+public final class PaymentValidator {
 
     private PaymentValidator() {
     }

@@ -15,6 +15,9 @@ import java.util.List;
 @Repository
 public class ClientRepositoryJpa implements ClientRepository {
 
+    private static final boolean trueresult=true;
+    private static final boolean falseresult=false;
+
     @Autowired
     private ClientJPA clientJPA;
 
@@ -46,7 +49,7 @@ public class ClientRepositoryJpa implements ClientRepository {
         if(this.checkIfExists(clientEntity.getId())) {
             clientJPA.delete(clientEntity);
             Boolean isFound=this.checkIfExists(clientEntity.getId());
-            return isFound?false:true;
+            return isFound?falseresult:trueresult;
         }
         else
             return false;

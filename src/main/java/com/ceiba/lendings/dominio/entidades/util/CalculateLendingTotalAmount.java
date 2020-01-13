@@ -7,7 +7,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CalculateLendingTotalAmount {
+public final class CalculateLendingTotalAmount {
+
+    private CalculateLendingTotalAmount(){
+    }
 
     private static final Double INTEREST=2.1;
     private static final Double OVERINTEREST=2.6;

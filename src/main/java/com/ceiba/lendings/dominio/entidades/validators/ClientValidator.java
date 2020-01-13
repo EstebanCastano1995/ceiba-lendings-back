@@ -9,7 +9,7 @@ import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
 
-public class ClientValidator {
+public final class ClientValidator {
 
     private ClientValidator() {
     }

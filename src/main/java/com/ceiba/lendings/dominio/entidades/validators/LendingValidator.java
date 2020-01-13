@@ -7,7 +7,7 @@ import com.ceiba.lendings.dominio.excepcion.RequiredFieldException;
 import java.util.Calendar;
 import java.util.Date;
 
-public class LendingValidator {
+public final class LendingValidator {
 
     private LendingValidator() {
     }
