@@ -15,41 +15,33 @@ public class LendingEntity implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
     private Long id;
-    @Column(name="lending_total_amount")
-    private Double lending_total_amount;
-    @Column(name="lending_return_date")
+    @Column(name="lendingtotalamount")
+    private Double lendingtotalamount;
+    @Column(name="lendingreturndate")
     @Temporal(TemporalType.DATE)
-    private Date lending_return_date;
-    @Column(name="lending_value")
-    private Double lending_value;
-    @Column(name="lending_date")
+    private Date lendingreturndate;
+    @Column(name="lendingvalue")
+    private Double lendingvalue;
+    @Column(name="lendingdate")
     @Temporal(TemporalType.DATE)
-    private Date lending_date;
+    private Date lendingdate;
 
-    @OneToMany(mappedBy="lending_id")
+    @OneToMany(mappedBy="lendingid")
     private Set<PaymentEntity> paymententity;
 
     @ManyToOne
     @JoinColumn(name="client_id", nullable=false)
-    private ClientEntity client_id;
+    private ClientEntity clientid;
 
     public LendingEntity() {
     }
 
-    public LendingEntity(Long id,Double lending_total_amount, Date lending_return_date,  Double lending_value, Date lending_date) {
+    public LendingEntity(Long id,Double lendingtotalamount, Date lendingreturndate,  Double lendingvalue, Date lendingdate) {
         this.id = id;
-        this.lending_return_date = (Date)lending_return_date.clone();
-        this.lending_total_amount = lending_total_amount;
-        this.lending_value = lending_value;
-        this.lending_date = (Date)lending_date.clone();
-    }
-
-    public Double getLending_total_amount() {
-        return lending_total_amount;
-    }
-
-    public void setLending_total_amount(Double lending_total_amount) {
-        this.lending_total_amount = lending_total_amount;
+        this.lendingreturndate = (Date)lendingreturndate.clone();
+        this.lendingtotalamount = lendingtotalamount;
+        this.lendingvalue = lendingvalue;
+        this.lendingdate = (Date)lendingdate.clone();
     }
 
     public Long getId() {
@@ -60,39 +52,51 @@ public class LendingEntity implements Serializable {
         this.id = id;
     }
 
-    public Date getLending_return_date() {
-        return (Date)lending_return_date.clone();
+    public Double getLendingtotalamount() {
+        return lendingtotalamount;
     }
 
-    public void setLending_return_date(Date lending_return_date) {
-        this.lending_return_date = (Date)lending_return_date.clone();
+    public void setLendingtotalamount(Double lendingtotalamount) {
+        this.lendingtotalamount = lendingtotalamount;
     }
 
-    public Double getLending_value() {
-        return lending_value;
+    public Date getLendingreturndate() {
+        return (Date)lendingreturndate.clone();
     }
 
-    public void setLending_value(Double lending_value) {
-        this.lending_value = lending_value;
+    public void setLendingreturndate(Date lendingreturndate) {
+        this.lendingreturndate = (Date)lendingreturndate.clone();
     }
 
-    public Date getLending_date() {
-        return (Date)lending_date.clone();
+    public Double getLendingvalue() {
+        return lendingvalue;
     }
 
-    public void setLending_date(Date lending_date) {
-        this.lending_date = (Date)lending_date.clone();;
+    public void setLendingvalue(Double lendingvalue) {
+        this.lendingvalue = lendingvalue;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public Date getLendingdate() {
+        return (Date)lendingdate.clone();
     }
 
-    public ClientEntity getClient_id() {
-        return client_id;
+    public void setLendingdate(Date lendingdate) {
+        this.lendingdate = (Date)lendingdate.clone();
     }
 
-    public void setClient_id(ClientEntity client_id) {
-        this.client_id= client_id;
+    public Set<PaymentEntity> getPaymententity() {
+        return paymententity;
+    }
+
+    public void setPaymententity(Set<PaymentEntity> paymententity) {
+        this.paymententity = paymententity;
+    }
+
+    public ClientEntity getClientid() {
+        return clientid;
+    }
+
+    public void setClientid(ClientEntity clientid) {
+        this.clientid = clientid;
     }
 }

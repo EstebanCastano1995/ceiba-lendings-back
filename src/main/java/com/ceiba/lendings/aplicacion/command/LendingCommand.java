@@ -5,21 +5,22 @@ import java.util.Date;
 public class LendingCommand {
 
     private Long id;
-    private Date lending_return_date;
-    private Double lending_value;
-    private Double lending_total_amount;
-    private Date lending_date;
-    private ClientCommand client_id;
+    private Date lendingreturndate;
+    private Double lendingvalue;
+    private Double lendingtotalamount;
+    private Date lendingdate;
+    private ClientCommand clientid;
 
     public LendingCommand() {
     }
 
-    public LendingCommand(Long id, Date lending_return_date, Double lending_value, Date lending_date,ClientCommand client_id) {
+    public LendingCommand(Long id, Date lendingreturndate, Double lendingvalue, Double lendingtotalamount, Date lendingdate, ClientCommand clientid) {
         this.id = id;
-        this.lending_return_date = (Date)lending_return_date.clone();
-        this.lending_value = lending_value;
-        this.lending_date = (Date)lending_date.clone();
-        this.client_id=client_id;
+        this.lendingreturndate = (Date)lendingreturndate.clone();
+        this.lendingvalue = lendingvalue;
+        this.lendingtotalamount = lendingtotalamount;
+        this.lendingdate = (Date)lendingdate.clone();;
+        this.clientid = clientid;
     }
 
     public Long getId() {
@@ -30,55 +31,55 @@ public class LendingCommand {
         this.id = id;
     }
 
-    public Date getLending_return_date() {
-        return (Date)lending_return_date.clone();
+    public Date getLendingreturndate() {
+        return (Date)lendingreturndate.clone();
     }
 
-    public void setLending_return_date(Date lending_return_date) {
-        this.lending_return_date = (Date)lending_return_date.clone();
+    public void setLendingreturndate(Date lendingreturndate) {
+        this.lendingreturndate = (Date)lendingreturndate.clone();
     }
 
-    public Double getLending_value() {
-        return lending_value;
+    public Double getLendingvalue() {
+        return lendingvalue;
     }
 
-    public void setLending_value(Double lending_value) {
-        this.lending_value = lending_value;
+    public void setLendingvalue(Double lendingvalue) {
+        this.lendingvalue = lendingvalue;
     }
 
-    public Date getLending_date() {
-        return (Date)lending_date.clone();
+    public Double getLendingtotalamount() {
+        return lendingtotalamount;
     }
 
-    public void setLending_date(Date lending_date) {
-        this.lending_date = (Date)lending_date.clone();;
+    public void setLendingtotalamount(Double lendingtotalamount) {
+        this.lendingtotalamount = lendingtotalamount;
     }
 
-    public ClientCommand getClient_id() {
-        return client_id;
+    public Date getLendingdate() {
+        return (Date)lendingdate.clone();
     }
 
-    public void setClient_id(ClientCommand client_id) {
-        this.client_id = client_id;
+    public void setLendingdate(Date lendingdate) {
+        this.lendingdate = (Date)lendingdate.clone();;
     }
 
-    public Double getLending_total_amount() {
-        return lending_total_amount;
+    public ClientCommand getClientid() {
+        return clientid;
     }
 
-    public void setLending_total_amount(Double lending_total_amount) {
-        this.lending_total_amount = lending_total_amount;
+    public void setClientid(ClientCommand clientid) {
+        this.clientid = clientid;
     }
 
     @Override
     public String toString() {
         return "LendingCommand{" +
                 "id=" + id +
-                ", lending_return_date=" + lending_return_date +
-                ", lending_value=" + lending_value +
-                ", lending_total_amount=" + lending_total_amount +
-                ", lending_date=" + lending_date +
-                ", client_id=" + client_id +
+                ", lendingreturndate=" + lendingreturndate +
+                ", lendingvalue=" + lendingvalue +
+                ", lendingtotalamount=" + lendingtotalamount +
+                ", lendingdate=" + lendingdate +
+                ", clientid=" + clientid +
                 '}';
     }
 }

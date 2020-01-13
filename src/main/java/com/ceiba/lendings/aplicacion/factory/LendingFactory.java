@@ -12,7 +12,7 @@ public class LendingFactory {
     private ModelMapper modelMapper = new ModelMapper();
 
     public Lending createLending(LendingCommand lendingCommand){
-        return new Lending(lendingCommand.getId(), lendingCommand.getLending_return_date(),
-                lendingCommand.getLending_value(), lendingCommand.getLending_date(), modelMapper.map(lendingCommand.getClient_id(),Client.class));
+        return new Lending(lendingCommand.getId(), lendingCommand.getLendingreturndate(),
+                lendingCommand.getLendingvalue(), lendingCommand.getLendingdate(), modelMapper.map(lendingCommand.getClientid(),Client.class));
     }
 }

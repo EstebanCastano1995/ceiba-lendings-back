@@ -12,6 +12,6 @@ public class PaymentFactory {
     private ModelMapper modelMapper = new ModelMapper();
 
     public Payment createPayment(PaymentCommand paymentCommand){
-        return new Payment(paymentCommand.getId(), paymentCommand.getPayment_value(), paymentCommand.getPayment_date(),modelMapper.map(paymentCommand.getLending_id(), Lending.class));
+        return new Payment(paymentCommand.getId(), paymentCommand.getPaymentvalue(), paymentCommand.getPaymentdate(),modelMapper.map(paymentCommand.getLendingid(), Lending.class));
     }
 }

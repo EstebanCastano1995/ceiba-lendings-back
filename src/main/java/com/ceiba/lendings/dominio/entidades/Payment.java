@@ -10,22 +10,22 @@ public class Payment {
     private static final String PAYMENT_LENDING_REQUIRED = "El prestamo del pago es requerido";
 
     private Long id;
-    private Double payment_value;
-    private Date payment_date;
-    private Lending lending_id;
+    private Double paymentvalue;
+    private Date paymentdate;
+    private Lending lendingid;
 
     public Payment() {
     }
 
-    public Payment(Long id, Double payment_value, Date payment_date, Lending lending_id) {
-        PaymentValidator.validateField(payment_date,PAYMENT_DATE_REQUIRED);
-        PaymentValidator.validateField(payment_value,PAYMENT_VALUE_REQUIRED);
-        PaymentValidator.validateField(lending_id,PAYMENT_LENDING_REQUIRED);
+    public Payment(Long id, Double paymentvalue, Date paymentdate, Lending lendingid) {
+        PaymentValidator.validateField(paymentdate,PAYMENT_DATE_REQUIRED);
+        PaymentValidator.validateField(paymentvalue,PAYMENT_VALUE_REQUIRED);
+        PaymentValidator.validateField(lendingid,PAYMENT_LENDING_REQUIRED);
 
         this.id = id;
-        this.payment_value = payment_value;
-        this.payment_date = (Date)payment_date.clone();
-        this.lending_id=lending_id;
+        this.paymentvalue = paymentvalue;
+        this.paymentdate = (Date)paymentdate.clone();
+        this.lendingid=lendingid;
     }
 
     public Long getId() {
@@ -36,27 +36,27 @@ public class Payment {
         this.id = id;
     }
 
-    public Double getPayment_value() {
-        return payment_value;
+    public Double getPaymentvalue() {
+        return paymentvalue;
     }
 
-    public void setPayment_value(Double payment_value) {
-        this.payment_value = payment_value;
+    public void setPaymentvalue(Double paymentvalue) {
+        this.paymentvalue = paymentvalue;
     }
 
-    public Date getPayment_date() {
-        return (Date)payment_date.clone();
+    public Date getPaymentdate() {
+        return (Date)paymentdate.clone();
     }
 
-    public void setPayment_date(Date payment_date) {
-        this.payment_date = (Date)payment_date.clone();;
+    public void setPaymentdate(Date paymentdate) {
+        this.paymentdate = (Date)paymentdate.clone();
     }
 
-    public Lending getLending_id() {
-        return lending_id;
+    public Lending getLendingid() {
+        return lendingid;
     }
 
-    public void setLending_id(Lending lending_id) {
-        this.lending_id = lending_id;
+    public void setLendingid(Lending lendingid) {
+        this.lendingid = lendingid;
     }
 }

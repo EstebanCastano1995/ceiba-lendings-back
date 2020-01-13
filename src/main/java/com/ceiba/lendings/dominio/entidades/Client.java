@@ -16,24 +16,24 @@ public class Client {
     private String name;
     private String address;
     private String phone;
-    private Date birth_date;
+    private Date birthdate;
 
     public Client() {
     }
 
-    public Client(Long id, String name, String address, String phone, Date birth_date) {
+    public Client(Long id, String name, String address, String phone, Date birthdate) {
         ClientValidator.validateField(name,CLIENT_NAME_REQUIRED);
         ClientValidator.validateField(id,CLIENT_ID_REQUIRED);
         ClientValidator.validateField(address,CLIENT_ADDRESS_REQUIRED);
         ClientValidator.validateField(phone,CLIENT_PHONE_REQUIRED);
-        ClientValidator.validateField(birth_date,CLIENT_BIRTH_DATE_REQUIRED);
-        ClientValidator.validateClientAge(birth_date,CLIENT_MUST_BE_ADULT);
+        ClientValidator.validateField(birthdate,CLIENT_BIRTH_DATE_REQUIRED);
+        ClientValidator.validateClientAge(birthdate,CLIENT_MUST_BE_ADULT);
 
         this.id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.birth_date = (Date)birth_date.clone();
+        this.birthdate = (Date)birthdate.clone();
     }
 
     public Long getId() {
@@ -68,11 +68,11 @@ public class Client {
         this.phone = phone;
     }
 
-    public Date getBirth_date() {
-        return (Date)birth_date.clone();
+    public Date getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirth_date(Date birth_date) {
-        this.birth_date = (Date)birth_date.clone();
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
     }
 }

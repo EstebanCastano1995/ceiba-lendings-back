@@ -5,18 +5,18 @@ import java.util.Date;
 public class PaymentCommand {
 
     private Long id;
-    private Double payment_value;
-    private Date payment_date;
-    private LendingCommand lending_id;
+    private Double paymentvalue;
+    private Date paymentdate;
+    private LendingCommand lendingid;
 
     public PaymentCommand() {
     }
 
-    public PaymentCommand(Long id, Double payment_value, Date payment_date, LendingCommand lending_id) {
+    public PaymentCommand(Long id, Double paymentvalue, Date paymentdate, LendingCommand lendingid) {
         this.id = id;
-        this.payment_value = payment_value;
-        this.payment_date = (Date)payment_date.clone();
-        this.lending_id=lending_id;
+        this.paymentvalue = paymentvalue;
+        this.paymentdate = (Date)paymentdate.clone();
+        this.lendingid = lendingid;
     }
 
     public Long getId() {
@@ -27,37 +27,37 @@ public class PaymentCommand {
         this.id = id;
     }
 
-    public Double getPayment_value() {
-        return payment_value;
+    public Double getPaymentvalue() {
+        return paymentvalue;
     }
 
-    public void setPayment_value(Double payment_value) {
-        this.payment_value = payment_value;
+    public void setPaymentvalue(Double paymentvalue) {
+        this.paymentvalue = paymentvalue;
     }
 
-    public Date getPayment_date() {
-        return (Date)payment_date.clone();
+    public Date getPaymentdate() {
+        return (Date)paymentdate.clone();
     }
 
-    public void setPayment_date(Date payment_date) {
-        this.payment_date = (Date)payment_date.clone();;
+    public void setPaymentdate(Date paymentdate) {
+        this.paymentdate = (Date)paymentdate.clone();
     }
 
-    public LendingCommand getLending_id() {
-        return lending_id;
+    public LendingCommand getLendingid() {
+        return lendingid;
     }
 
-    public void setLending_id(LendingCommand lending_id) {
-        this.lending_id = lending_id;
+    public void setLendingid(LendingCommand lendingid) {
+        this.lendingid = lendingid;
     }
 
     @Override
     public String toString() {
         return "PaymentCommand{" +
                 "id=" + id +
-                ", payment_value=" + payment_value +
-                ", payment_date=" + payment_date +
-                ", lending_id=" + lending_id +
+                ", paymentvalue=" + paymentvalue +
+                ", paymentdate=" + paymentdate +
+                ", lendingid=" + lendingid +
                 '}';
     }
 }

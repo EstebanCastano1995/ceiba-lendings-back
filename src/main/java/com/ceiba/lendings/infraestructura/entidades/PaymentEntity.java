@@ -14,23 +14,23 @@ public class PaymentEntity implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
     private Long id;
-    @Column(name="payment_value")
-    private Double payment_value;
-    @Column(name="payment_date")
+    @Column(name="paymentvalue")
+    private Double paymentvalue;
+    @Column(name="paymentdate")
     @Temporal(TemporalType.DATE)
-    private Date payment_date;
+    private Date paymentdate;
 
     @ManyToOne
-    @JoinColumn(name="lending_id", nullable=false)
-    private LendingEntity lending_id;
+    @JoinColumn(name="lendingid", nullable=false)
+    private LendingEntity lendingid;
 
     public PaymentEntity() {
     }
 
-    public PaymentEntity(Long id, Double payment_value, Date payment_date) {
+    public PaymentEntity(Long id, Double paymentvalue, Date paymentdate) {
         this.id = id;
-        this.payment_value = payment_value;
-        this.payment_date = (Date)payment_date.clone();
+        this.paymentvalue = paymentvalue;
+        this.paymentdate = (Date)paymentdate.clone();
     }
 
     public Long getId() {
@@ -41,31 +41,27 @@ public class PaymentEntity implements Serializable {
         this.id = id;
     }
 
-    public Double getPayment_value() {
-        return payment_value;
+    public Double getPaymentvalue() {
+        return paymentvalue;
     }
 
-    public void setPayment_value(Double payment_value) {
-        this.payment_value = payment_value;
+    public void setPaymentvalue(Double paymentvalue) {
+        this.paymentvalue = paymentvalue;
     }
 
-    public Date getPayment_date() {
-        return (Date)payment_date.clone();
+    public Date getPaymentdate() {
+        return (Date)paymentdate.clone();
     }
 
-    public void setPayment_date(Date payment_date) {
-        this.payment_date = (Date)payment_date.clone();
+    public void setPaymentdate(Date paymentdate) {
+        this.paymentdate = (Date)paymentdate.clone();
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public LendingEntity getLendingid() {
+        return lendingid;
     }
 
-    public LendingEntity getLending_id() {
-        return lending_id;
-    }
-
-    public void setLending_id(LendingEntity lending_id) {
-        this.lending_id = lending_id;
+    public void setLendingid(LendingEntity lendingid) {
+        this.lendingid = lendingid;
     }
 }

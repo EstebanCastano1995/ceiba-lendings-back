@@ -8,7 +8,7 @@ public class ClientCommand {
     private String name;
     private String address;
     private String phone;
-    private Date birth_date;
+    private Date birthdate;
 
     public ClientCommand() {
     }
@@ -18,7 +18,7 @@ public class ClientCommand {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.birth_date = (Date)birth_date.clone();
+        this.birthdate = (Date)birth_date.clone();
     }
 
     public Long getId() {
@@ -53,12 +53,12 @@ public class ClientCommand {
         this.phone = phone;
     }
 
-    public Date getBirth_date() {
-        return (Date)birth_date.clone();
+    public Date getBirthdate() {
+        return (Date)birthdate.clone();
     }
 
-    public void setBirth_date(Date birth_date) {
-        this.birth_date = (Date)birth_date.clone();
+    public void setBirthdate(Date birth_date) {
+        this.birthdate = (Date)birth_date.clone();
     }
 
     @Override
@@ -68,7 +68,7 @@ public class ClientCommand {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", birth_date=" + birth_date +
+                ", birthdate=" + birthdate +
                 '}';
     }
 }

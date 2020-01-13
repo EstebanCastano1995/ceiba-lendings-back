@@ -28,22 +28,22 @@ public class ClientEntity implements Serializable {
     @Column(name="phone")
     private String phone;
 
-    @Column(name="birth_date")
+    @Column(name="birthdate")
     @Temporal(TemporalType.DATE)
-    private Date birth_date;
+    private Date birthdate;
 
-    @OneToMany(mappedBy="client_id")
+    @OneToMany(mappedBy="clientid")
     private Set<LendingEntity> lending;
 
     public ClientEntity() {
     }
 
-    public ClientEntity(Long id, String name, String address, String phone, Date birth_date) {
+    public ClientEntity(Long id, String name, String address, String phone, Date birthdate) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.birth_date = (Date)birth_date.clone();
+        this.birthdate = (Date)birthdate.clone();
     }
 
     public Long getId() {
@@ -78,12 +78,12 @@ public class ClientEntity implements Serializable {
         this.phone = phone;
     }
 
-    public Date getBirth_date() {
-        return (Date)birth_date.clone();
+    public Date getBirthdate() {
+        return (Date)birthdate.clone();
     }
 
-    public void setBirth_date(Date birth_date) {
-        this.birth_date = (Date)birth_date.clone();;
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = (Date)birthdate.clone();
     }
 
     public static long getSerialVersionUID() {
@@ -97,7 +97,7 @@ public class ClientEntity implements Serializable {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", birth_date=" + birth_date +
+                ", birthdate=" + birthdate +
                 ", lending=" + lending +
                 '}';
     }
