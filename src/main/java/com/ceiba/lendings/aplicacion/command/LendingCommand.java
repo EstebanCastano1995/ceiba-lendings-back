@@ -11,29 +11,29 @@ public class LendingCommand {
     private Date lendingdate;
     private ClientCommand clientid;
 
-    public LendingCommand(Long id, Date lendingreturndate, Double lendingvalue, Double lendingtotalamount, Date lendingdate, ClientCommand clientid) {
-        this.id = id;
-        this.lendingreturndate = (Date)lendingreturndate.clone();
-        this.lendingvalue = lendingvalue;
-        this.lendingtotalamount = lendingtotalamount;
-        this.lendingdate = (Date)lendingdate.clone();
-        this.clientid = clientid;
+    public LendingCommand(Long idc, Date lendingreturndatec, Double lendingvaluec, Double lendingtotalamountc, Date lendingdatec, ClientCommand clientidc) {
+        this.id = idc;
+        this.lendingreturndate = (Date)lendingreturndatec.clone();
+        this.lendingvalue = lendingvaluec;
+        this.lendingtotalamount = lendingtotalamountc;
+        this.lendingdate = (Date)lendingdatec.clone();
+        this.clientid = clientidc;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long ids) {
+        this.id = ids;
     }
 
     public Date getLendingreturndate() {
         return (Date)lendingreturndate.clone();
     }
 
-    public void setLendingreturndate(Date lendingreturndate) {
-        this.lendingreturndate = (Date)lendingreturndate.clone();
+    public void setLendingreturndate(Date lendingreturndates) {
+        this.lendingreturndate = (Date)lendingreturndates.clone();
     }
 
     public Double getLendingvalue() {
@@ -66,17 +66,5 @@ public class LendingCommand {
 
     public void setClientid(ClientCommand clientid) {
         this.clientid = clientid;
-    }
-
-    @Override
-    public String toString() {
-        return "LendingCommand{" +
-                "id=" + id +
-                ", lendingreturndate=" + lendingreturndate +
-                ", lendingvalue=" + lendingvalue +
-                ", lendingtotalamount=" + lendingtotalamount +
-                ", lendingdate=" + lendingdate +
-                ", clientid=" + clientid +
-                '}';
     }
 }

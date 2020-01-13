@@ -10,62 +10,51 @@ public class ClientCommand {
     private String phone;
     private Date birthdate;
 
-    public ClientCommand(Long id, String name, String address, String phone, Date birthdate) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.birthdate = (Date)birthdate.clone();
+    public ClientCommand(Long idc, String namec, String addressc, String phonec, Date birthdatec) {
+        this.id = idc;
+        this.name = namec;
+        this.address = addressc;
+        this.phone = phonec;
+        this.birthdate = (Date)birthdatec.clone();
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long ID) {
-        this.id = ID;
+    public void setId(Long ids) {
+        this.id = ids;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String NAME) {
-        this.name = NAME;
+    public void setName(String names) {
+        this.name = names;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String ADDRESS) {
-        this.address = ADDRESS;
+    public void setAddress(String addresss) {
+        this.address = addresss;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String PHONE) {
-        this.phone = PHONE;
+    public void setPhone(String phones) {
+        this.phone = phones;
     }
 
     public Date getBirthdate() {
         return (Date)birthdate.clone();
     }
 
-    public void setBirthdate(Date BIRTHDATE) {
-        this.birthdate = (Date)BIRTHDATE.clone();
-    }
-
-    @Override
-    public String toString() {
-        return "ClientCommand{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", birthdate=" + birthdate +
-                '}';
+    public void setBirthdate(Date birthdates) {
+        this.birthdate = (Date)birthdates.clone();
     }
 }
