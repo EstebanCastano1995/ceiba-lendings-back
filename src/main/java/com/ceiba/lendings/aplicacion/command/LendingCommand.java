@@ -40,31 +40,31 @@ public class LendingCommand {
         return lendingvalue;
     }
 
-    public void setLendingvalue(Double lendingvalue) {
-        this.lendingvalue = lendingvalue;
+    public void setLendingvalue(Double lendingvalues) {
+        this.lendingvalue = lendingvalues;
     }
 
     public Double getLendingtotalamount() {
         return lendingtotalamount;
     }
 
-    public void setLendingtotalamount(Double lendingtotalamount) {
-        this.lendingtotalamount = lendingtotalamount;
+    public void setLendingtotalamount(Double lendingtotalamounts) {
+        this.lendingtotalamount = lendingtotalamounts;
     }
 
     public Date getLendingdate() {
         return (Date)lendingdate.clone();
     }
 
-    public void setLendingdate(Date lendingdate) {
-        this.lendingdate = (Date)lendingdate.clone();
+    public void setLendingdate(Date lendingdates) {
+        this.lendingdate = (Date)lendingdates.clone();
     }
 
     public ClientCommand getClientid() {
         return clientid;
     }
 
-    public void setClientid(ClientCommand clientid) {
-        this.clientid = clientid;
+    public void setClientid(ClientCommand clientids) {
+        this.clientid = clientids;
     }
 }

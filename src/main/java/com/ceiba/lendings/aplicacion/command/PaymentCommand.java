@@ -9,52 +9,42 @@ public class PaymentCommand {
     private Date paymentdate;
     private LendingCommand lendingid;
 
-    public PaymentCommand(Long id, Double paymentvalue, Date paymentdate, LendingCommand lendingid) {
-        this.id = id;
-        this.paymentvalue = paymentvalue;
-        this.paymentdate = (Date)paymentdate.clone();
-        this.lendingid = lendingid;
+    public PaymentCommand(Long idc, Double paymentvaluec, Date paymentdatec, LendingCommand lendingidc) {
+        this.id = idc;
+        this.paymentvalue = paymentvaluec;
+        this.paymentdate = (Date)paymentdatec.clone();
+        this.lendingid = lendingidc;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long ids) {
+        this.id = ids;
     }
 
     public Double getPaymentvalue() {
         return paymentvalue;
     }
 
-    public void setPaymentvalue(Double paymentvalue) {
-        this.paymentvalue = paymentvalue;
+    public void setPaymentvalue(Double paymentvalues) {
+        this.paymentvalue = paymentvalues;
     }
 
     public Date getPaymentdate() {
         return (Date)paymentdate.clone();
     }
 
-    public void setPaymentdate(Date paymentdate) {
-        this.paymentdate = (Date)paymentdate.clone();
+    public void setPaymentdate(Date paymentdates) {
+        this.paymentdate = (Date)paymentdates.clone();
     }
 
     public LendingCommand getLendingid() {
         return lendingid;
     }
 
-    public void setLendingid(LendingCommand lendingid) {
-        this.lendingid = lendingid;
-    }
-
-    @Override
-    public String toString() {
-        return "PaymentCommand{" +
-                "id=" + id +
-                ", paymentvalue=" + paymentvalue +
-                ", paymentdate=" + paymentdate +
-                ", lendingid=" + lendingid +
-                '}';
+    public void setLendingid(LendingCommand lendingids) {
+        this.lendingid = lendingids;
     }
 }
