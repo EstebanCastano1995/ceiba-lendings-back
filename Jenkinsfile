@@ -37,8 +37,8 @@ pipeline{
                         stage('Compile & Unit Tests') {
                            steps {
                               echo "--------------->Unit Tests<--------"
-                              sh 'gradle --b ./build.gradle test'
-                              sh 'gradle --b ./build.gradle jacocoTestReport'
+                              //sh 'gradle --b ./build.gradle test'
+                              //sh 'gradle --b ./build.gradle jacocoTestReport'
                            }
                         }
                         stage('Static Code Analysys'){
