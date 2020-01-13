@@ -56,4 +56,12 @@ public class PaymentEntity implements Serializable {
     public void setPaymentdate(Date paymentdate) {
         this.paymentdate = (Date)paymentdate.clone();
     }
+
+    public LendingEntity getLendingid() {
+        return lendingid;
+    }
+
+    public void setLendingid(LendingEntity lendingid) {
+        this.lendingid = lendingid;
+    }
 }

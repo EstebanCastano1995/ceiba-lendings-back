@@ -60,7 +60,7 @@ public class LendingCommand {
     }
 
     public void setLendingdate(Date lendingdate) {
-        this.lendingdate = (Date)lendingdate.clone();;
+        this.lendingdate = (Date)lendingdate.clone();
     }
 
     public ClientCommand getClientid() {

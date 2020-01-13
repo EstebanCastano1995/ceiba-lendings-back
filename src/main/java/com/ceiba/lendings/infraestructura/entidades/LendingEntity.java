@@ -30,7 +30,7 @@ public class LendingEntity implements Serializable {
     private Set<PaymentEntity> paymententity;
 
     @ManyToOne
-    @JoinColumn(name="client_id", nullable=false)
+    @JoinColumn(name="clientid", nullable=false)
     private ClientEntity clientid;
 
     public LendingEntity() {
