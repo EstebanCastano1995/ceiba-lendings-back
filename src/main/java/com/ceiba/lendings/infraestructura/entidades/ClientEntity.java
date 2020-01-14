@@ -34,17 +34,6 @@ public class ClientEntity implements Serializable {
     @OneToMany(mappedBy="clientid")
     private Set<LendingEntity> lending;
 
-    public ClientEntity() {
-    }
-
-    public ClientEntity(Long idc, String namec, String addressc, String phonec, Date birthdatec) {
-        this.id = idc;
-        this.name = namec;
-        this.address = addressc;
-        this.phone = phonec;
-        this.birthdate = (Date)birthdatec.clone();
-    }
-
     public Long getId() {
         return id;
     }

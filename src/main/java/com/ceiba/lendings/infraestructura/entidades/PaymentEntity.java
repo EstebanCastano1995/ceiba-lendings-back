@@ -24,15 +24,6 @@ public class PaymentEntity implements Serializable {
     @JoinColumn(name="lendingid", nullable=false)
     private LendingEntity lendingid;
 
-    public PaymentEntity() {
-    }
-
-    public PaymentEntity(Long idc, Double paymentvaluec, Date paymentdatec) {
-        this.id = idc;
-        this.paymentvalue = paymentvaluec;
-        this.paymentdate = (Date)paymentdatec.clone();
-    }
-
     public Long getId() {
         return id;
     }

@@ -2,7 +2,13 @@ package com.ceiba.lendings.dominio.entidades;
 
 import java.util.Date;
 import com.ceiba.lendings.dominio.entidades.validators.ClientValidator;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class Client {
 
     private static final String CLIENTIDREQUIRED ="La identificación del cliente es requerida";
@@ -18,9 +24,6 @@ public class Client {
     private String phone;
     private Date birthdate;
 
-    public Client() {
-    }
-
     public Client(Long idc, String namec, String addressc, String phonec, Date birthdatec) {
         ClientValidator.validateField(namec,CLIENTNAMEREQUIRED);
         ClientValidator.validateField(idc,CLIENTIDREQUIRED);
@@ -34,45 +37,5 @@ public class Client {
         this.address = addressc;
         this.phone = phonec;
         this.birthdate = (Date)birthdatec.clone();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long ids) {
-        this.id = ids;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String names) {
-        this.name = names;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String addresss) {
-        this.address = addresss;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phones) {
-        this.phone = phones;
-    }
-
-    public Date getBirthdate() {
-        return (Date)birthdate.clone();
-    }
-
-    public void setBirthdate(Date birthdates) {
-        this.birthdate = (Date)birthdates.clone();
     }
 }

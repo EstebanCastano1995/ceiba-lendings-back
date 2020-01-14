@@ -33,17 +33,6 @@ public class LendingEntity implements Serializable {
     @JoinColumn(name="clientid", nullable=false)
     private ClientEntity clientid;
 
-    public LendingEntity() {
-    }
-
-    public LendingEntity(Long idc,Double lendingtotalamountc, Date lendingreturndatec,  Double lendingvaluec, Date lendingdatec) {
-        this.id = idc;
-        this.lendingreturndate = (Date)lendingreturndatec.clone();
-        this.lendingtotalamount = lendingtotalamountc;
-        this.lendingvalue = lendingvaluec;
-        this.lendingdate = (Date)lendingdatec.clone();
-    }
-
     public Long getId() {
         return id;
     }
