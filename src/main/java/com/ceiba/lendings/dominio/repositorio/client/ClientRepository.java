@@ -8,4 +8,5 @@ public interface ClientRepository  {
     List<ClientCommand> getClients();
     Boolean createClient(Client client);
     Boolean deleteClient(Client client);
+    Boolean checkIfLendingClientExists(Long id);
 }

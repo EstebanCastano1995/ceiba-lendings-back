@@ -1,6 +1,5 @@
 package com.ceiba.lendings.infraestructura.controller;
 
-import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.aplicacion.command.LendingCommand;
 import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.usecases.lending.CreateLendingUseCase;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

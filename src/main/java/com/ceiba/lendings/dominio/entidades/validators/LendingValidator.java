@@ -25,7 +25,6 @@ public final class LendingValidator {
     public static void  validateLendingDate(Date lendingDate, String mensaje) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(lendingDate);
-            System.out.println("**********"+lendingDate+"***************");
             if(calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY)
                 throw  new LendingDateException(mensaje);
     }
