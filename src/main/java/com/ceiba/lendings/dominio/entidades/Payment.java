@@ -20,14 +20,14 @@ public class Payment {
     private Date paymentdate;
     private Lending lendingid;
 
-    public Payment(Long idc, Double paymentvaluec, Date paymentdatec, Lending lendingidc) {
-        PaymentValidator.validateField(paymentdatec,PAYMENTDATEREQUIRED);
-        PaymentValidator.validateField(paymentvaluec,PAYMENTVALUEREQUIRED);
-        PaymentValidator.validateField(lendingidc,PAYMENTLENDINGREQUIRED);
+    public Payment(Long id, Double paymentvalue, Date paymentdate, Lending lendingid) {
+        PaymentValidator.validateField(paymentdate,PAYMENTDATEREQUIRED);
+        PaymentValidator.validateField(paymentvalue,PAYMENTVALUEREQUIRED);
+        PaymentValidator.validateField(lendingid,PAYMENTLENDINGREQUIRED);
 
-        this.id = idc;
-        this.paymentvalue = paymentvaluec;
-        this.paymentdate = (Date)paymentdatec.clone();
-        this.lendingid=lendingidc;
+        this.id = id;
+        this.paymentvalue = paymentvalue;
+        this.paymentdate = (Date)paymentdate.clone();
+        this.lendingid=lendingid;
     }
 }
