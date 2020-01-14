@@ -1,6 +1,6 @@
 package com.ceiba.lendings.servicio;
 
-import com.ceiba.lendings.BasePrueba;
+import com.ceiba.lendings.BaseTest;
 import com.ceiba.lendings.databuilder.LendingTestDataBuilder;
 import com.ceiba.lendings.dominio.entidades.Lending;
 import com.ceiba.lendings.dominio.repositorio.lending.LendingRepository;
@@ -17,6 +17,6 @@ public class ManageLendingServiceTest {
         Mockito.when(lendingRepository.createLending(Mockito.any())).thenReturn(true);
 
         LendingServiceImpl lendingService = new LendingServiceImpl(lendingRepository);
-        BasePrueba.assertCorrect(lendingService.createLending(lending), true);
+        BaseTest.assertCorrect(lendingService.createLending(lending), true);
     }
 }

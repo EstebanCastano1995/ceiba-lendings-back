@@ -1,8 +1,6 @@
 package com.ceiba.lendings.databuilder;
 
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
-
-import java.util.Calendar;
 import java.util.Date;
 
 public class ClientCommandTestDataBuilder {

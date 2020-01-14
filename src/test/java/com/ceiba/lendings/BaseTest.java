@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 import org.junit.Assert;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class BasePrueba {
+public class BaseTest {
 
 	private static final String EXCEPCION_THROWED = " Se lanzó ";
 	private static final String EXPECTED_EXCEPTION = " Se esperaba ";
@@ -20,19 +20,7 @@ public class BasePrueba {
 		}
 	}
 
-	public static void assertThrows(Thunk thunk, Class<? extends Exception> exception, String message) {
-		try {
-			thunk.execute();
-			fail();
-		} catch (Exception e) {
-			Assert.assertTrue(EXPECTED_EXCEPTION + exception.getCanonicalName() + EXCEPCION_THROWED
-					+ e.getClass().getCanonicalName(), exception.isInstance(e));
-			Assert.assertTrue(e.getMessage().contains(message));
-		}
-	}
-
 	public static void  assertCorrect(Object condition,Object condition1){
-		System.out.println("********"+condition+"=="+condition1+"***********");
 		 Assert.assertTrue(condition.equals(condition1));
 	}
 

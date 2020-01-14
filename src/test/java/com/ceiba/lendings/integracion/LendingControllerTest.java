@@ -18,7 +18,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
+
+import static org.hamcrest.Matchers.hasSize;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -44,14 +48,32 @@ public class LendingControllerTest {
     @Test
     public void createLending() throws Exception {
 
-        ClientCommand clientCommand = new ClientCommandTestDataBuilder().build();
+        ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
         mockMvc.perform(post("/client").contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(clientCommand)))
+                .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
 
         LendingCommand lendingCommand = new LendingCommandTestDataBuilder().build();
         mockMvc.perform(post("/lending").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void updateLending() throws Exception {
+        createLending();
+        LendingCommand lendingCommand = new LendingCommandTestDataBuilder().build();
+        lendingCommand.setLendingvalue(350000.0);
+        mockMvc.perform(post("/lending/update").contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(lendingCommand)))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void listLendings() throws Exception {
+        createLending();
+        mockMvc.perform(get("/lending").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)));
     }
 }

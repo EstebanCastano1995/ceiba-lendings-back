@@ -25,7 +25,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Boolean deleteClient(Client client) {
-        if(!this.clientRepository.checkIfLendingClientExists(client.getId()))
+        if(!this.clientRepository.checkIfLendingClientExists(client))
            return clientRepository.deleteClient(client);
         else
             return false;

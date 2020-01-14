@@ -1,6 +1,6 @@
 package com.ceiba.lendings.servicio;
 
-import com.ceiba.lendings.BasePrueba;
+import com.ceiba.lendings.BaseTest;
 import com.ceiba.lendings.databuilder.ClientTestDataBuilder;
 import com.ceiba.lendings.dominio.entidades.Client;
 import com.ceiba.lendings.dominio.repositorio.client.ClientRepository;
@@ -18,7 +18,7 @@ public class ManageClientServiceTest {
         Mockito.when(repositorioCliente.deleteClient(Mockito.any())).thenReturn(false);
 
         ClientServiceImpl createClientService = new ClientServiceImpl(repositorioCliente);
-        BasePrueba.assertCorrect(createClientService.deleteClient(cliente), false);
+        BaseTest.assertCorrect(createClientService.deleteClient(cliente), false);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class ManageClientServiceTest {
         Mockito.when(repositorioCliente.deleteClient(Mockito.any())).thenReturn(true);
 
         ClientServiceImpl createClientService = new ClientServiceImpl(repositorioCliente);
-        BasePrueba.assertCorrect(createClientService.deleteClient(cliente), true);
+        BaseTest.assertCorrect(createClientService.deleteClient(cliente), true);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class ManageClientServiceTest {
         Mockito.when(repositorioCliente.createClient(Mockito.any())).thenReturn(true);
 
         ClientServiceImpl createClientService = new ClientServiceImpl(repositorioCliente);
-        BasePrueba.assertCorrect(createClientService.createClient(client), true);
+        BaseTest.assertCorrect(createClientService.createClient(client), true);
     }
 
 }

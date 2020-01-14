@@ -1,8 +1,6 @@
 package com.ceiba.lendings.databuilder;
 
 import com.ceiba.lendings.dominio.entidades.Client;
-
-import java.util.Calendar;
 import java.util.Date;
 
 public class ClientTestDataBuilder {

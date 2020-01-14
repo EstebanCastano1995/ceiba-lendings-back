@@ -20,12 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
-
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.core.Is.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -49,21 +44,25 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void createPayment() throws Exception {
+    public void createLending() throws Exception {
 
-        /*ClientCommand clientCommand = new ClientCommandTestDataBuilder().build();
+        ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
         mockMvc.perform(post("/client").contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(clientCommand)))
+                .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
 
         LendingCommand lendingCommand = new LendingCommandTestDataBuilder().build();
         mockMvc.perform(post("/lending").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk());
+    }
 
+    /*@Test
+    public void createPayment() throws Exception {
+        createLending();
         PaymentCommand paymentCommand = new PaymentCommandDataBuilder().build();
         mockMvc.perform(post("/payment").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(paymentCommand)))
-                .andExpect(status().isOk());*/
-    }
+                .andExpect(status().isOk());
+    }*/
 }

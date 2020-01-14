@@ -1,6 +1,6 @@
 package com.ceiba.lendings.servicio;
 
-import com.ceiba.lendings.BasePrueba;
+import com.ceiba.lendings.BaseTest;
 import com.ceiba.lendings.databuilder.PaymentTestDataBuilder;
 import com.ceiba.lendings.dominio.entidades.Payment;
 import com.ceiba.lendings.dominio.repositorio.payment.PaymentRepository;
@@ -17,7 +17,7 @@ public class ManagePaymentServiceTest {
         Mockito.when(paymentRepository.createPayment(Mockito.any())).thenReturn(true);
 
         PaymentServiceImpl paymentService = new PaymentServiceImpl(paymentRepository);
-        BasePrueba.assertCorrect(paymentService.createPayment(payment), true);
+        BaseTest.assertCorrect(paymentService.createPayment(payment), true);
     }
 
 }
