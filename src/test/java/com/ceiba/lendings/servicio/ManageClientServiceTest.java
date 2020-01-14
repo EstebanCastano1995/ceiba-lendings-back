@@ -8,7 +8,8 @@ import com.ceiba.lendings.dominio.servicio.client.ClientServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-public class CreateClientService {
+public class ManageClientServiceTest {
+
     @Test
     public void validateDeleteClientIfHasLendings() {
         Client cliente = new ClientTestDataBuilder().build();
@@ -30,4 +31,15 @@ public class CreateClientService {
         ClientServiceImpl createClientService = new ClientServiceImpl(repositorioCliente);
         BasePrueba.assertCorrect(createClientService.deleteClient(cliente), true);
     }
+
+    @Test
+    public void validateCreateClientTest() {
+        Client client=new ClientTestDataBuilder().build();
+        ClientRepository repositorioCliente = Mockito.mock(ClientRepository.class);
+        Mockito.when(repositorioCliente.createClient(Mockito.any())).thenReturn(true);
+
+        ClientServiceImpl createClientService = new ClientServiceImpl(repositorioCliente);
+        BasePrueba.assertCorrect(createClientService.createClient(client), true);
+    }
+
 }
