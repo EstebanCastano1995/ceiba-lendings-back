@@ -1,7 +1,6 @@
 package com.ceiba.lendings.infraestructura.entidades;
 
 import javax.persistence.*;
-
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
