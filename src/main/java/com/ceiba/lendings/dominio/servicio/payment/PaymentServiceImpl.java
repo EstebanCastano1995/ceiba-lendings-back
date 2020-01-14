@@ -9,8 +9,12 @@ import javax.inject.Inject;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
-    @Inject
     private PaymentRepository paymentRepository;
+
+    @Inject
+    public PaymentServiceImpl(PaymentRepository paymentRepository){
+        this.paymentRepository=paymentRepository;
+    }
 
     @Override
     public Boolean createPayment(Payment payment) {

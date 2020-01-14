@@ -46,7 +46,7 @@ public class ClientRepositoryJpa implements ClientRepository {
     @Override
     public Boolean deleteClient(Client client) {
         ClientEntity clientEntity = modelMapper.map(client, ClientEntity.class);
-        if(this.checkIfExists(clientEntity.getId())) {
+        if(this.checkIfExists(clientEntity.getId()) && !this.checkIfLendingExists(clientEntity.getId())) {
             clientJPA.delete(clientEntity);
             Boolean isFound=this.checkIfExists(clientEntity.getId());
             return isFound?FALSERESULT:TRUERESULT;
@@ -57,5 +57,9 @@ public class ClientRepositoryJpa implements ClientRepository {
 
     private Boolean checkIfExists(Long id) {
         return clientJPA.existsById(id);
+    }
+
+    private Boolean checkIfLendingExists(Long id) {
+        return lendingJPA.existsById(id);
     }
 }

@@ -11,8 +11,12 @@ import javax.inject.Inject;
 @Service
 public class LendingServiceImpl implements LendingService{
 
-    @Inject
     private LendingRepository lendingRepository;
+
+    @Inject
+    public LendingServiceImpl(LendingRepository lendingRepository){
+        this.lendingRepository=lendingRepository;
+    }
 
     @Override
     public List<LendingCommand> getLendings() {
