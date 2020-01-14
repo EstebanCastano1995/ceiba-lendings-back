@@ -25,39 +25,39 @@ public class ClientCommand {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long ids) {
+        this.id = ids;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String names) {
+        this.name = names;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String addresss) {
+        this.address = addresss;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String phones) {
+        this.phone = phones;
     }
 
     public Date getBirthdate() {
         return (Date)birthdate.clone();
     }
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = (Date)birthdate.clone();
+    public void setBirthdate(Date birthdates) {
+        this.birthdate = (Date)birthdates.clone();
     }
 }
