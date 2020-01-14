@@ -21,8 +21,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compile('org.modelmapper:modelmapper:1.1.0')
 	testCompile('org.mockito:mockito-junit-jupiter:2.23.0')
-	compileOnly 'org.projectlombok:lombok:1.16.18'
-	annotationProcessor 'org.projectlombok:lombok:1.16.18'
+	compileOnly 'org.projectlombok:lombok:1.18.10'
+	annotationProcessor 'org.projectlombok:lombok:1.18.10'
 	runtimeOnly 'org.postgresql:postgresql'
 	runtimeOnly 'com.h2database:h2'
 	compile group: 'javax.inject', name: 'javax.inject', version: '1'
