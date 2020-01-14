@@ -6,8 +6,10 @@ import com.ceiba.lendings.aplicacion.usecases.client.CreateClientUseCase;
 import com.ceiba.lendings.aplicacion.usecases.client.DeleteClientUseCase;
 import com.ceiba.lendings.aplicacion.usecases.client.GetClientListUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,33 +32,36 @@ public class ClientController {
 		this.deleteClientUseCase=deleteClientUseCase;
 	}
 
-	@RequestMapping(value = "/client",method = RequestMethod.GET)
-	public List<ClientCommand> getClients() {
+	@RequestMapping(value = "/client",method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<ClientCommand>> getClients() {
 		try {
-			return this.getClientListUseCase.execute(null);
+			 List<ClientCommand> clients=this.getClientListUseCase.execute(null);
+			 return new ResponseEntity<>(clients, HttpStatus.OK);
 		} catch (UseCaseException e) {
 			LOGGER.log(Level.INFO,"Exception getting clients",e);
-			return new ArrayList<>();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		}
 	}
 	
 	@RequestMapping(value = "/client",method = RequestMethod.POST)
-	public Boolean createClient(@RequestBody ClientCommand clientCommand) {
+	public ResponseEntity<Boolean> createClient(@RequestBody ClientCommand clientCommand) {
 		try {
-			return this.createClientUseCase.execute(clientCommand);
+			Boolean result=this.createClientUseCase.execute(clientCommand);
+			return ResponseEntity.status(HttpStatus.OK).body(result);
 		} catch (UseCaseException e) {
 			LOGGER.log(Level.INFO,"Exception saving client",e);
-			return false;
+			return new ResponseEntity<>(false,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@RequestMapping(value = "/client/delete",method = RequestMethod.POST)
-	public Boolean deleteClient(@RequestBody ClientCommand clientCommand) {
+	public ResponseEntity<Boolean> deleteClient(@RequestBody ClientCommand clientCommand) {
 		try {
-			return this.deleteClientUseCase.execute(clientCommand);
+			Boolean result=this.deleteClientUseCase.execute(clientCommand);
+			return new ResponseEntity<>(result,HttpStatus.OK);
 		} catch (UseCaseException e) {
 			LOGGER.log(Level.INFO,"Exception deleting client",e);
-			return false;
+			return new ResponseEntity<>(false,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 }

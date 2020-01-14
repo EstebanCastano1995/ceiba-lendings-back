@@ -1,8 +1,6 @@
 package com.ceiba.lendings.dominio.entidades;
 
 import java.util.Date;
-
-import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.dominio.entidades.util.CalculateLendingTotalAmount;
 import com.ceiba.lendings.dominio.entidades.validators.LendingValidator;
 

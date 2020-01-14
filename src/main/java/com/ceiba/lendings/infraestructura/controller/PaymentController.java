@@ -3,12 +3,13 @@ package com.ceiba.lendings.infraestructura.controller;
 import com.ceiba.lendings.aplicacion.command.PaymentCommand;
 import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.usecases.payment.CreatePaymentUseCase;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,12 +26,13 @@ public class PaymentController {
     }
 
     @RequestMapping(value = "/payment",method=RequestMethod.POST)
-    public Boolean createPayment(@RequestBody PaymentCommand paymentCommand) {
+    public ResponseEntity<Boolean> createPayment(@RequestBody PaymentCommand paymentCommand) {
         try {
-            return this.createPaymentUseCase.execute(paymentCommand);
+             Boolean result=this.createPaymentUseCase.execute(paymentCommand);
+             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (UseCaseException e) {
             LOGGER.log(Level.INFO,"Exception saving payments",e);
-            return false;
+            return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

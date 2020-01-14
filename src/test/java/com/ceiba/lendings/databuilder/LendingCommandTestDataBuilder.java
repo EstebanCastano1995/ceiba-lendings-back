@@ -15,8 +15,8 @@ public class LendingCommandTestDataBuilder {
 
     public LendingCommandTestDataBuilder() {
         this.id=(long)1;
-        this.lendingreturndate=new Date();
-        this.lendingdate=new Date();
+        this.lendingreturndate=DateDataBuilder.build(2020,0,1);;
+        this.lendingdate=DateDataBuilder.build(2020,1,1);
         this.lendingvalue=450000.0;
         this.lendingtotalamount=470000.0;
         this.clientid = new ClientCommandTestDataBuilder().build();

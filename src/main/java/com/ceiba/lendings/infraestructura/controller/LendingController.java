@@ -1,10 +1,13 @@
 package com.ceiba.lendings.infraestructura.controller;
 
+import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.aplicacion.command.LendingCommand;
 import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.usecases.lending.CreateLendingUseCase;
 import com.ceiba.lendings.aplicacion.usecases.lending.GetLendingsListUseCase;
 import com.ceiba.lendings.aplicacion.usecases.lending.UpdateLendingUseCase;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,32 +37,35 @@ public class LendingController {
     }
 
     @RequestMapping(value = "/lending",method = RequestMethod.GET)
-    public List<LendingCommand> getLendings() {
+    public ResponseEntity<List<LendingCommand>> getLendings() {
         try {
-            return this.getLendingsListUseCase.execute(null);
+             List<LendingCommand> lendings= this.getLendingsListUseCase.execute(null);
+            return new ResponseEntity<>(lendings, HttpStatus.OK);
         } catch (UseCaseException e) {
             LOGGER.log(Level.INFO,"Exception getting lendings",e);
-            return new ArrayList<>();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
     @RequestMapping(value = "/lending",method = RequestMethod.POST)
-    public Boolean createLending(@RequestBody LendingCommand lendingCommand) {
+    public ResponseEntity<Boolean> createLending(@RequestBody LendingCommand lendingCommand) {
         try {
-            return createLendingUseCase.execute(lendingCommand);
+            Boolean result=createLendingUseCase.execute(lendingCommand);
+            return new ResponseEntity<>(result,HttpStatus.OK);
         } catch (UseCaseException e) {
             LOGGER.log(Level.INFO,"Exception saving lending",e);
-            return false;
+            return new ResponseEntity<>(false,HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @RequestMapping(value = "/lending/update",method = RequestMethod.POST)
-    public Boolean updateLending(@RequestBody LendingCommand lendingCommand) {
+    public ResponseEntity<Boolean> updateLending(@RequestBody LendingCommand lendingCommand) {
         try {
-            return updateLendingUseCase.execute(lendingCommand);
+             Boolean result=updateLendingUseCase.execute(lendingCommand);
+            return new ResponseEntity<>(result,HttpStatus.OK);
         } catch (UseCaseException e) {
             LOGGER.log(Level.INFO,"Exception updating lending",e);
-            return false;
+            return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

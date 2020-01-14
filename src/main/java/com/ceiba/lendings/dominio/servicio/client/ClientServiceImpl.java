@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class ClientServiceImpl implements ClientService {
 
-    @Inject
     private ClientRepository clientRepository;
+
+    @Inject
+    public ClientServiceImpl(ClientRepository clientRepository){
+        this.clientRepository=clientRepository;
+    }
 
     @Override
     public Boolean createClient(Client cliente) {

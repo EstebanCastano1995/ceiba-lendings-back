@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class CreateClientService {
-   /* @Test
+    @Test
     public void validarEliminarCliente() {
         Client cliente = new ClientTestDataBuilder().build();
         ClientRepository repositorioCliente = Mockito.mock(ClientRepository.class);
-        Mockito.when(repositorioCliente.deleteClient(Mockito.any())).thenReturn(true);
+        Mockito.when(repositorioCliente.deleteClient(Mockito.any())).thenReturn(false);
 
-        ClientServiceImpl servicioCrearCliente = new ClientServiceImpl(repositorioCliente);
-        BasePrueba.assertThrows(() -> servicioCrearCliente.validarEliminarCliente(cliente), ExcepcionClienteExiste.class, "El cliente ya se encuentra registrado");
-    }*/
+        ClientServiceImpl createClientService = new ClientServiceImpl(repositorioCliente);
+        BasePrueba.assertCorrect(createClientService.deleteClient(cliente), false);
+    }
 }

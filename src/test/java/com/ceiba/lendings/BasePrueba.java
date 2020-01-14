@@ -31,6 +31,11 @@ public class BasePrueba {
 		}
 	}
 
+	public static void  assertCorrect(Object condition,Object condition1){
+		System.out.println("********"+condition+"=="+condition1+"***********");
+		 Assert.assertTrue(condition.equals(condition1));
+	}
+
 	@FunctionalInterface
 	public interface Thunk {
 		void execute();

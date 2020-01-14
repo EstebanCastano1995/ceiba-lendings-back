@@ -14,13 +14,11 @@ public class ClientTestDataBuilder {
     private Date birthdate;
 
     public ClientTestDataBuilder() {
-        Calendar c = Calendar.getInstance();
-        c.set(1995, 9, 29, 0, 0);
         this.id=(long)11111;
         this.name="Esteban Castaño";
         this.address="Calle 10 # 24-26 B/Corbones";
         this.phone="3137340927";
-        this.birthdate=c.getTime();
+        this.birthdate=DateDataBuilder.build(1995,9,29);
     }
 
     public ClientTestDataBuilder withId(Long id) {
