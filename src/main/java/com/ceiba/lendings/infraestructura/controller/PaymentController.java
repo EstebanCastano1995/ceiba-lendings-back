@@ -4,7 +4,6 @@ import com.ceiba.lendings.aplicacion.command.PaymentCommand;
 import com.ceiba.lendings.aplicacion.usecases.payment.CreatePaymentUseCase;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/service")
