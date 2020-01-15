@@ -2,7 +2,6 @@ package com.ceiba.lendings.dominio.entidades;
 
 import com.ceiba.lendings.BaseTest;
 import com.ceiba.lendings.databuilder.DateDataBuilder;
-import com.ceiba.lendings.databuilder.LendingCommandTestDataBuilder;
 import com.ceiba.lendings.databuilder.LendingTestDataBuilder;
 import com.ceiba.lendings.dominio.excepcion.LendingDateException;
 import com.ceiba.lendings.dominio.excepcion.LendingValueException;

@@ -1,7 +1,5 @@
 package com.ceiba.lendings.integracion;
 
-//import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
-//import org.springframework.test.web.servlet.ResultMatcher;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;

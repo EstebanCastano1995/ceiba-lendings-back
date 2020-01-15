@@ -1,6 +1,5 @@
 package com.ceiba.lendings.databuilder;
 
-import com.ceiba.lendings.aplicacion.command.LendingCommand;
 import com.ceiba.lendings.dominio.entidades.Client;
 import com.ceiba.lendings.dominio.entidades.Lending;
 import java.util.Date;
