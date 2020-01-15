@@ -1,6 +1,5 @@
 package com.ceiba.lendings.infraestructura.adaptador.repositorio.lending;
 
-import com.ceiba.lendings.aplicacion.command.LendingCommand;
 import com.ceiba.lendings.dominio.entidades.Lending;
 import com.ceiba.lendings.dominio.repositorio.lending.LendingRepository;
 import com.ceiba.lendings.infraestructura.entidades.LendingEntity;
