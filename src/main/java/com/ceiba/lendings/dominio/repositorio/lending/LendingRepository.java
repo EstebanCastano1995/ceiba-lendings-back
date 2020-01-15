@@ -6,5 +6,4 @@ import java.util.List;
 public interface LendingRepository {
     List<Lending> getLendings();
     Boolean createLending(Lending lending);
-    Boolean updateLending(Lending lending);
 }

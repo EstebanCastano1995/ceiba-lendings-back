@@ -35,13 +35,6 @@ public class LendingRepositoryJpa implements LendingRepository {
         return this.checkIfExists(lendingEntity.getId());
     }
 
-    @Override
-    public Boolean updateLending(Lending lending) {
-        LendingEntity lendingEntity = modelMapper.map(lending, LendingEntity.class);
-        lendingJPA.save(lendingEntity);
-        return this.checkIfExists(lendingEntity.getId());
-    }
-
     private Boolean checkIfExists(Long id) {
         return lendingJPA.existsById(id);
     }
