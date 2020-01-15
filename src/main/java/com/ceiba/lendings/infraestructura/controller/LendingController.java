@@ -15,8 +15,6 @@ import java.util.logging.Logger;
 @RequestMapping("/service")
 public class LendingController {
 
-    private static final Logger LOGGER = Logger.getLogger(LendingController.class.getName());
-
     private CreateLendingUseCase createLendingUseCase;
 
     private GetLendingsListUseCase getLendingsListUseCase;

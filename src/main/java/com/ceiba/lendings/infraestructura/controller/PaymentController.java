@@ -10,8 +10,6 @@ import java.util.logging.Logger;
 @RequestMapping("/service")
 public class PaymentController {
 
-    private static final Logger LOGGER = Logger.getLogger(PaymentController.class.getName());
-
     private CreatePaymentUseCase createPaymentUseCase;
 
     @Autowired

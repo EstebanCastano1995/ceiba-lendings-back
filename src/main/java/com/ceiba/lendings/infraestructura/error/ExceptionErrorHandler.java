@@ -9,15 +9,16 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class ExceptionHandler extends ResponseEntityExceptionHandler {
+public class ExceptionErrorHandler extends ResponseEntityExceptionHandler {
 
-    private static final Logger LOGGER = Logger.getLogger(ClientController.class.getName());
+    private static final Logger LOGGERUTIL = Logger.getLogger(ClientController.class.getName());
 
-    @org.springframework.web.bind.annotation.ExceptionHandler({ Exception.class })
+    @ExceptionHandler({ Exception.class })
     public ResponseEntity<Object> handleAll(Exception ex, WebRequest request) {
-        LOGGER.log(Level.INFO,"Exception executing operation",ex);
+        LOGGERUTIL.log(Level.INFO,"Exception executing operation",ex);
         ApiError apiError = new ApiError(
                 HttpStatus.INTERNAL_SERVER_ERROR, ex.getLocalizedMessage(), "error occurred");
         return new ResponseEntity<Object>(
