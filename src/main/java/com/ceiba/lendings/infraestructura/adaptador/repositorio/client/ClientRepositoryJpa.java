@@ -27,11 +27,11 @@ public class ClientRepositoryJpa implements ClientRepository {
     private ModelMapper modelMapper = new ModelMapper();
 
     @Override
-    public List<ClientCommand> getClients() {
+    public List<Client> getClients() {
         List<ClientEntity> clienteEntities = clientJPA.findAll();
-        List<ClientCommand> list = new ArrayList<>();
+        List<Client> list = new ArrayList<>();
         for(int i=0;i<clienteEntities.size();i++) {
-            list.add(modelMapper.map(clienteEntities.get(i),ClientCommand.class));
+            list.add(modelMapper.map(clienteEntities.get(i),Client.class));
         }
         return list;
     }

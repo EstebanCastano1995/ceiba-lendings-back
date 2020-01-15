@@ -1,6 +1,5 @@
 package com.ceiba.lendings.dominio.servicio.client;
 
-import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.aplicacion.services.ClientService;
 import com.ceiba.lendings.dominio.entidades.Client;
 import com.ceiba.lendings.dominio.repositorio.client.ClientRepository;
@@ -32,7 +31,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<ClientCommand> getClients() {
+    public List<Client> getClients() {
         return clientRepository.getClients();
     }
 }

@@ -20,11 +20,11 @@ public class LendingRepositoryJpa implements LendingRepository {
     private ModelMapper modelMapper = new ModelMapper();
 
     @Override
-    public List<LendingCommand> getLendings() {
+    public List<Lending> getLendings() {
         List<LendingEntity> lendingEntities = lendingJPA.findAll();
-        List<LendingCommand> list = new ArrayList<>();
+        List<Lending> list = new ArrayList<>();
         for(int i=0;i<lendingEntities.size();i++) {
-            list.add(modelMapper.map(lendingEntities.get(i),LendingCommand.class));
+            list.add(modelMapper.map(lendingEntities.get(i),Lending.class));
         }
         return list;
     }

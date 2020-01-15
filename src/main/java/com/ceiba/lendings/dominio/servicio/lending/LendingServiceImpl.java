@@ -1,6 +1,5 @@
 package com.ceiba.lendings.dominio.servicio.lending;
 
-import com.ceiba.lendings.aplicacion.command.LendingCommand;
 import com.ceiba.lendings.aplicacion.services.LendingService;
 import com.ceiba.lendings.dominio.entidades.Lending;
 import java.util.List;
@@ -19,7 +18,7 @@ public class LendingServiceImpl implements LendingService{
     }
 
     @Override
-    public List<LendingCommand> getLendings() {
+    public List<Lending> getLendings() {
         return lendingRepository.getLendings();
     }
 
