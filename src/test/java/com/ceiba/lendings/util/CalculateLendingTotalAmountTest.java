@@ -2,7 +2,6 @@ package com.ceiba.lendings.util;
 
 import com.ceiba.lendings.BaseTest;
 import com.ceiba.lendings.databuilder.DateDataBuilder;
-import com.ceiba.lendings.databuilder.LendingTestDataBuilder;
 import com.ceiba.lendings.dominio.entidades.util.CalculateLendingTotalAmount;
 import org.junit.jupiter.api.Test;
 

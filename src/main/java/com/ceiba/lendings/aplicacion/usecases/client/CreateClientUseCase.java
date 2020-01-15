@@ -1,30 +1,27 @@
 package com.ceiba.lendings.aplicacion.usecases.client;
 
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
-import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.factory.ClientFactory;
-import com.ceiba.lendings.aplicacion.services.ClientService;
-import com.ceiba.lendings.aplicacion.usecases.UseCase;
+import com.ceiba.lendings.aplicacion.usecases.UseCaseVoid;
 import com.ceiba.lendings.dominio.entidades.Client;
+import com.ceiba.lendings.dominio.servicio.client.CreateClientService;
 import org.springframework.stereotype.Component;
-import javax.inject.Inject;
 
 @Component
-public class CreateClientUseCase implements UseCase<ClientCommand, Boolean> {
+public class CreateClientUseCase implements UseCaseVoid<ClientCommand> {
 
     private final ClientFactory clientFactory;
 
-    @Inject
-    private ClientService clientService;
+    private CreateClientService createClientService;
 
-    public CreateClientUseCase(ClientFactory clientFactory) {
-        super();
+    public CreateClientUseCase(ClientFactory clientFactory, CreateClientService createClientService) {
         this.clientFactory = clientFactory;
+        this.createClientService=createClientService;
     }
 
     @Override
-    public Boolean execute(ClientCommand input) throws UseCaseException {
+    public void execute(ClientCommand input){
         Client cliente = this.clientFactory.createClient(input);
-        return clientService.createClient(cliente);
+        createClientService.createClient(cliente);
     }
 }

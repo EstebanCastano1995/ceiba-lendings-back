@@ -1,30 +1,27 @@
 package com.ceiba.lendings.aplicacion.usecases.lending;
 
 import com.ceiba.lendings.aplicacion.command.LendingCommand;
-import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.factory.LendingFactory;
-import com.ceiba.lendings.aplicacion.services.LendingService;
-import com.ceiba.lendings.aplicacion.usecases.UseCase;
+import com.ceiba.lendings.aplicacion.usecases.UseCaseVoid;
 import com.ceiba.lendings.dominio.entidades.Lending;
-import javax.inject.Inject;
+import com.ceiba.lendings.dominio.servicio.lending.CreateLendingService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreateLendingUseCase implements UseCase<LendingCommand, Boolean> {
+public class CreateLendingUseCase implements UseCaseVoid<LendingCommand> {
 
     private final LendingFactory lendingFactory;
 
-    @Inject
-    private LendingService lendingService;
+    private CreateLendingService createLendingService;
 
-    public CreateLendingUseCase(LendingFactory lendingFactory) {
-        super();
+    public CreateLendingUseCase(LendingFactory lendingFactory,CreateLendingService createLendingService) {
         this.lendingFactory = lendingFactory;
+        this.createLendingService=createLendingService;
     }
 
     @Override
-    public Boolean execute(LendingCommand input) throws UseCaseException {
+    public void execute(LendingCommand input) {
         Lending lending = this.lendingFactory.createLending(input);
-        return lendingService.createLending(lending);
+        createLendingService.createLending(lending);
     }
 }

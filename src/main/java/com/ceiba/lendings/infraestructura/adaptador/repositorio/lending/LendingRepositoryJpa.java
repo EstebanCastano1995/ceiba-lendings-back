@@ -2,7 +2,9 @@ package com.ceiba.lendings.infraestructura.adaptador.repositorio.lending;
 
 import com.ceiba.lendings.dominio.entidades.Lending;
 import com.ceiba.lendings.dominio.repositorio.lending.LendingRepository;
+import com.ceiba.lendings.infraestructura.entidades.ClientEntity;
 import com.ceiba.lendings.infraestructura.entidades.LendingEntity;
+import com.ceiba.lendings.infraestructura.jpa.ClientJPA;
 import com.ceiba.lendings.infraestructura.jpa.LendingJPA;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class LendingRepositoryJpa implements LendingRepository {
 
     @Autowired
     private LendingJPA lendingJPA;
+
+    @Autowired
+    private ClientJPA clientJPA;
 
     private ModelMapper modelMapper = new ModelMapper();
 
@@ -29,13 +34,20 @@ public class LendingRepositoryJpa implements LendingRepository {
     }
 
     @Override
-    public Boolean createLending(Lending lending) {
+    public void createLending(Lending lending) {
         LendingEntity lendingEntity = modelMapper.map(lending, LendingEntity.class);
         lendingJPA.save(lendingEntity);
-        return this.checkIfExists(lendingEntity.getId());
     }
 
-    private Boolean checkIfExists(Long id) {
-        return lendingJPA.existsById(id);
+    @Override
+    public Boolean checkIfLendingExists(Lending lending) {
+        LendingEntity lendingEntity = modelMapper.map(lending, LendingEntity.class);
+        return lendingJPA.existsById(lendingEntity.getId());
+    }
+
+    @Override
+    public Boolean checkIfLendingClientExists(Lending lending) {
+        LendingEntity lendingEntity = modelMapper.map(lending, LendingEntity.class);
+        return clientJPA.existsById(lendingEntity.getClientid().getId());
     }
 }

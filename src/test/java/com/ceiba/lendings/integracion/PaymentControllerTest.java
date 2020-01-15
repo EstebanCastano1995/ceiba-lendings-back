@@ -45,12 +45,12 @@ public class PaymentControllerTest {
     public void createLending() throws Exception {
 
         ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/client").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/service/client").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
 
         LendingCommand lendingCommand = new LendingCommandTestDataBuilder().build();
-        mockMvc.perform(post("/lending").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/service/lending").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk());
     }

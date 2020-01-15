@@ -45,7 +45,7 @@ public class ClientControllerTest {
     @Test
     public void createClient() throws Exception {
         ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/client").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/service/client").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
     }
@@ -53,7 +53,7 @@ public class ClientControllerTest {
     @Test
     public void listClients () throws Exception {
         createClient();
-        mockMvc.perform(get("/client").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/service/client").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].name", is("Esteban Castaño")));

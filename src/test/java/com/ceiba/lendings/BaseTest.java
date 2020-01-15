@@ -20,6 +20,17 @@ public class BaseTest {
 		}
 	}
 
+	public static void assertThrows(Thunk thunk, Class<? extends Exception> exception, String message) {
+		try {
+			thunk.execute();
+			fail();
+		} catch (Exception e) {
+			Assert.assertTrue(EXPECTED_EXCEPTION + exception.getCanonicalName() + EXCEPCION_THROWED
+					+ e.getClass().getCanonicalName(), exception.isInstance(e));
+			Assert.assertTrue(e.getMessage().contains(message));
+		}
+	}
+
 	public static void  assertCorrect(Object condition,Object condition1){
 		 Assert.assertTrue(condition.equals(condition1));
 	}

@@ -1,30 +1,27 @@
 package com.ceiba.lendings.aplicacion.usecases.payment;
 
 import com.ceiba.lendings.aplicacion.command.PaymentCommand;
-import com.ceiba.lendings.aplicacion.excepcion.UseCaseException;
 import com.ceiba.lendings.aplicacion.factory.PaymentFactory;
-import com.ceiba.lendings.aplicacion.services.PaymentService;
-import com.ceiba.lendings.aplicacion.usecases.UseCase;
+import com.ceiba.lendings.aplicacion.usecases.UseCaseVoid;
 import com.ceiba.lendings.dominio.entidades.Payment;
-import javax.inject.Inject;
+import com.ceiba.lendings.dominio.servicio.payment.CreatePaymentService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreatePaymentUseCase implements UseCase<PaymentCommand, Boolean> {
+public class CreatePaymentUseCase implements UseCaseVoid<PaymentCommand> {
 
     private final PaymentFactory paymentFactory;
 
-    @Inject
-    private PaymentService paymentService;
+    private CreatePaymentService createPaymentService;
 
-    public CreatePaymentUseCase(PaymentFactory paymentFactory) {
-        super();
+    public CreatePaymentUseCase(PaymentFactory paymentFactory,CreatePaymentService createPaymentService) {
         this.paymentFactory = paymentFactory;
+        this.createPaymentService=createPaymentService;
     }
 
     @Override
-    public Boolean execute(PaymentCommand input) throws UseCaseException {
+    public void execute(PaymentCommand input){
         Payment payment = this.paymentFactory.createPayment(input);
-        return paymentService.createPayment(payment);
+        createPaymentService.createPayment(payment);
     }
 }

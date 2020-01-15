@@ -1,6 +1,6 @@
-package com.ceiba.lendings.aplicacion.excepcion;
+package com.ceiba.lendings.dominio.excepcion;
 
-public class UseCaseException extends RuntimeException {
+public class ClientMustExistException extends RuntimeException {
     /*
      *
      */
@@ -9,7 +9,7 @@ public class UseCaseException extends RuntimeException {
      * Constructor
      * @param mensaje
      */
-    public UseCaseException(String mensaje) {
+    public ClientMustExistException(String mensaje) {
         super(mensaje);
     }
 }
