@@ -1,8 +1,8 @@
 package com.ceiba.lendings.infraestructura.error;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.http.HttpStatus;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,8 +16,7 @@ public class ApiError {
             super();
             this.status = status;
             this.message = message;
-            List<String> errorsClone=errors;
-            this.errors = errorsClone;
+            this.errors=errors;
         }
 
         public ApiError(HttpStatus status, String message, String error) {
@@ -35,21 +34,19 @@ public class ApiError {
         this.status = status;
     }
 
+    public List<String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<String> errors) {
+        this.errors = errors;
+    }
+
     public String getMessage() {
         return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public List<String> getErrors() {
-        List<String> errorsClone=this.errors;
-        return errorsClone;
-    }
-
-    public void setErrors(List<String> errors) {
-        List<String> errorsClone=errors;
-        this.errors = errorsClone;
     }
 }

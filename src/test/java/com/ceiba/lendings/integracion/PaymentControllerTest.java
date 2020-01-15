@@ -3,9 +3,12 @@ package com.ceiba.lendings.integracion;
 import com.ceiba.lendings.LendingsApplication;
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.aplicacion.command.LendingCommand;
+import com.ceiba.lendings.aplicacion.command.PaymentCommand;
 import com.ceiba.lendings.databuilder.ClientCommandTestDataBuilder;
 import com.ceiba.lendings.databuilder.LendingCommandTestDataBuilder;
+import com.ceiba.lendings.databuilder.PaymentCommandDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -42,9 +45,8 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void createLending() throws Exception {
-
-        ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
+    public void createPayment() throws Exception {
+        /*ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
         mockMvc.perform(post("/service/client").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
@@ -53,14 +55,10 @@ public class PaymentControllerTest {
         mockMvc.perform(post("/service/lending").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk());
-    }
 
-    /*@Test
-    public void createPayment() throws Exception {
-        createLending();
         PaymentCommand paymentCommand = new PaymentCommandDataBuilder().build();
-        mockMvc.perform(post("/payment").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/service/payment").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(paymentCommand)))
-                .andExpect(status().isOk());
-    }*/
+                .andExpect(status().isOk());*/
+    }
 }
