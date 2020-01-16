@@ -23,7 +23,7 @@ public class ClientRepositoryJpa implements ClientRepository {
     @Autowired
     private LendingJPA lendingJPA;
 
-    private ModelMapper modelMapper = new ModelMapper();
+    private static final ModelMapper modelMapper=new ModelMapper();
 
     @Override
     public List<Client> getClients() {
