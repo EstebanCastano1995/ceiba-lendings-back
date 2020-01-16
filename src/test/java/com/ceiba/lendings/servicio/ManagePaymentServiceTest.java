@@ -3,7 +3,6 @@ package com.ceiba.lendings.servicio;
 import com.ceiba.lendings.BaseTest;
 import com.ceiba.lendings.databuilder.PaymentTestDataBuilder;
 import com.ceiba.lendings.dominio.entidades.Payment;
-import com.ceiba.lendings.dominio.excepcion.LendingClientMustExistException;
 import com.ceiba.lendings.dominio.excepcion.LendingMustBeCreatedException;
 import com.ceiba.lendings.dominio.repositorio.payment.PaymentRepository;
 import com.ceiba.lendings.dominio.servicio.payment.CreatePaymentService;

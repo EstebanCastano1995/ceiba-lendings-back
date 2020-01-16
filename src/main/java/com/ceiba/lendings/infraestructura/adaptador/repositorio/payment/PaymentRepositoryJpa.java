@@ -18,7 +18,7 @@ public class PaymentRepositoryJpa implements PaymentRepository {
     @Autowired
     private LendingJPA lendingJPA;
 
-    private ModelMapper modelMapper = new ModelMapper();
+    private static final ModelMapper modelMapper=new ModelMapper();
 
     @Override
     public void createPayment(Payment payment) {

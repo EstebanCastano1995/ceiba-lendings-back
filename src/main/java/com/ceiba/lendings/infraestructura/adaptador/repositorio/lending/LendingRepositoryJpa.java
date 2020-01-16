@@ -20,7 +20,7 @@ public class LendingRepositoryJpa implements LendingRepository {
     @Autowired
     private ClientJPA clientJPA;
 
-    private ModelMapper modelMapper = new ModelMapper();
+    private static final ModelMapper modelMapper=new ModelMapper();
 
     @Override
     public List<Lending> getLendings() {
