@@ -8,11 +8,11 @@ import com.ceiba.lendings.databuilder.ClientCommandTestDataBuilder;
 import com.ceiba.lendings.databuilder.LendingCommandTestDataBuilder;
 import com.ceiba.lendings.databuilder.PaymentCommandDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -28,6 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = LendingsApplication.class)
 @AutoConfigureMockMvc
 @Transactional
+@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 public class PaymentControllerTest {
 
     @Autowired
@@ -46,7 +47,8 @@ public class PaymentControllerTest {
 
     @Test
     public void createPayment() throws Exception {
-        /*ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
+
+        ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
         mockMvc.perform(post("/service/client").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
@@ -59,6 +61,6 @@ public class PaymentControllerTest {
         PaymentCommand paymentCommand = new PaymentCommandDataBuilder().build();
         mockMvc.perform(post("/service/payment").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(paymentCommand)))
-                .andExpect(status().isOk());*/
+                .andExpect(status().isOk());
     }
 }

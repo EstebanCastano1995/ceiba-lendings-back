@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.ceiba.lendings.LendingsApplication;
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.databuilder.ClientCommandTestDataBuilder;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -42,6 +43,11 @@ public class ClientControllerTest {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context).build();
     }
 
+    @After
+    public void clear(){
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(null).build();
+    }
+
     @Test
     public void createClient() throws Exception {
         ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
@@ -59,23 +65,20 @@ public class ClientControllerTest {
                 .andExpect(jsonPath("$[0].name", is("Esteban Castaño")));
     }
 
-    /*@Test
+    @Test
     public void deleteClientWithOutSaving() throws Exception {
         ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/client/delete").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/service/client/delete").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
-                .andExpect(status().isOk())
-                .andExpect((ResultMatcher) content().contentType("application/json;charset=UTF-8"))
-                .andExpect((ResultMatcher) content().string("false"));
+                .andExpect(status().isInternalServerError());
     }
 
     @Test
     public void deleteClientSavingFirst() throws Exception {
         this.createClient();
         ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/client/delete").contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(comandoCliente))).andExpect(status().isOk())
-                .andExpect((ResultMatcher) content().contentType("application/json;charset=UTF-8"))
-                .andExpect((ResultMatcher) content().string("true"));
-    }*/
+        mockMvc.perform(post("/service/client/delete").contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(comandoCliente)))
+                .andExpect(status().isOk());
+    }
 }

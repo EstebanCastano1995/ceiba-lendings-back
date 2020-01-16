@@ -13,7 +13,7 @@ public class PaymentCommandDataBuilder {
 
     public PaymentCommandDataBuilder() {
         this.id=(long)1;
-        this.paymentdate=DateDataBuilder.build(2020,0,14);
+        this.paymentdate=DateDataBuilder.build(2020,1,14);
         this.paymentvalue=25480.0;
         this.lendingid=new LendingCommandTestDataBuilder().build();
     }

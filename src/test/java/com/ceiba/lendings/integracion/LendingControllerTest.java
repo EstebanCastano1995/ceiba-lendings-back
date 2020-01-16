@@ -68,7 +68,7 @@ public class LendingControllerTest {
 
     @Test
     public void updateLending() throws Exception {
-        /*ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
+        ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
         mockMvc.perform(post("/service/client").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
@@ -78,10 +78,11 @@ public class LendingControllerTest {
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk());
 
+        lendingCommand.setId((long)2);
         lendingCommand.setLendingvalue(478000.0);
         mockMvc.perform(post("/service/lending/update").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
-                .andExpect(status().isOk()).andReturn();*/
+                .andExpect(status().isOk()).andReturn();
     }
 
     @Test
@@ -92,9 +93,6 @@ public class LendingControllerTest {
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].lendingvalue", is(470000.0)))
                 .andReturn();
-        /*String content = resultmockMvc.getResponse().getContentAsString();
-        System.out.println("******************");
-        System.out.println(content);*/
     }
 
 }
