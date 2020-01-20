@@ -2,6 +2,8 @@ package com.ceiba.lendings;
 
 import java.util.function.Supplier;
 import org.junit.Assert;
+import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class BaseTest {
@@ -38,5 +40,10 @@ public class BaseTest {
 	@FunctionalInterface
 	public interface Thunk {
 		void execute();
+	}
+
+	@Test
+	public void basePruebaStarts(){
+
 	}
 }
