@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/service/lending")
 public class LendingController {
 
     private CreateLendingUseCase createLendingUseCase;
@@ -27,19 +27,20 @@ public class LendingController {
     this.updateLendingUseCase=updateLendingUseCase;
     }
 
-    @GetMapping(value = "/lending")
+    @GetMapping
     public ResponseEntity<List<LendingCommand>> getLendings() {
        List<LendingCommand> lendings= this.getLendingsListUseCase.execute();
        return new ResponseEntity<>(lendings, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/lending")
+    @PostMapping
     public void createLending(@RequestBody LendingCommand lendingCommand) {
           createLendingUseCase.execute(lendingCommand);
     }
 
-    @PostMapping(value = "/lending/update")
-    public void updateLending(@RequestBody LendingCommand lendingCommand) {
+    @PutMapping(value = "/{id}")
+    public void updateLending(@PathVariable Long id,@RequestBody LendingCommand lendingCommand) {
+        lendingCommand.setId(id);
         updateLendingUseCase.execute(lendingCommand);
     }
 }

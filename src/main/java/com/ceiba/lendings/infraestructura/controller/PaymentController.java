@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/service/payment")
 public class PaymentController {
 
     private CreatePaymentUseCase createPaymentUseCase;
@@ -16,7 +16,7 @@ public class PaymentController {
         this.createPaymentUseCase=createPaymentUseCase;
     }
 
-    @PostMapping(value = "/payment")
+    @PostMapping
     public void createPayment(@RequestBody PaymentCommand paymentCommand) {
          this.createPaymentUseCase.execute(paymentCommand);
     }

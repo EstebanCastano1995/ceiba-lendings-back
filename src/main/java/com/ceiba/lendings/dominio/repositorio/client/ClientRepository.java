@@ -21,19 +21,26 @@ public interface ClientRepository  {
      * Método para eliminar un cliente
      * @param client,cliente a eliminar
      */
-    void deleteClient(Client client);
+    void deleteClient(Long client);
 
     /**
      * Método para saber si un cliente tiene prestamos registrados
      * @param id , id del cliente
      * @return , resultado de si tiene registrados prestamos o no
      */
-    Boolean checkIfLendingClientExists(Client id);
+    Boolean checkIfLendingClientExists(Long id);
 
     /**
      * Método para saber si un cliente esta registrado
-     * @param id , id del cliente
+     * @param id , objeto del cliente
      * @return , resultado de si el cliente esta registrado
      */
     Boolean checkIfClientExists(Client id);
+
+    /**
+     * Método para saber si un cliente esta registrado
+     * @param id , objeto del cliente
+     * @return , resultado de si el cliente esta registrado
+     */
+    Boolean checkIfClientExistsById(Long id);
 }

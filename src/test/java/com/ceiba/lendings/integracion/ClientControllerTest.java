@@ -1,8 +1,7 @@
 package com.ceiba.lendings.integracion;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.ceiba.lendings.LendingsApplication;
 import com.ceiba.lendings.aplicacion.command.ClientCommand;
@@ -67,18 +66,14 @@ public class ClientControllerTest {
 
     @Test
     public void deleteClientWithOutSaving() throws Exception {
-        ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/service/client/delete").contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(comandoCliente)))
-                .andExpect(status().isInternalServerError());
+        mockMvc.perform(delete("/service/client/45122").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isInternalServerError());
     }
 
     @Test
     public void deleteClientSavingFirst() throws Exception {
         this.createClient();
-        ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/service/client/delete").contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(comandoCliente)))
-                .andExpect(status().isOk());
+        mockMvc.perform(delete("/service/client/"+11111).contentType(MediaType.APPLICATION_JSON))
+       .andExpect(status().isOk());
     }
 }

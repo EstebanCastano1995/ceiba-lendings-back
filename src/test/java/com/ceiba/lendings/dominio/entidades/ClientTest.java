@@ -58,5 +58,4 @@ public class ClientTest {
         builder.withBirthDate(DateDataBuilder.build(1995,9,29));
         builder.build();
     }
-
 }

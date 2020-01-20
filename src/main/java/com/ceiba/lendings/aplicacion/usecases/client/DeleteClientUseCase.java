@@ -1,14 +1,12 @@
 package com.ceiba.lendings.aplicacion.usecases.client;
 
-import com.ceiba.lendings.aplicacion.command.ClientCommand;
 import com.ceiba.lendings.aplicacion.factory.ClientFactory;
 import com.ceiba.lendings.aplicacion.usecases.UseCaseVoid;
 import com.ceiba.lendings.dominio.servicio.client.DeleteClientService;
 import org.springframework.stereotype.Component;
-import com.ceiba.lendings.dominio.entidades.Client;
 
 @Component
-public class DeleteClientUseCase implements UseCaseVoid<ClientCommand> {
+public class DeleteClientUseCase implements UseCaseVoid<Long> {
 
     private final ClientFactory clientFactory;
 
@@ -20,8 +18,7 @@ public class DeleteClientUseCase implements UseCaseVoid<ClientCommand> {
     }
 
     @Override
-    public void execute(ClientCommand input)  {
-        Client cliente = this.clientFactory.createClient(input);
-        deleteClientService.deleteClient(cliente);
+    public void execute(Long input)  {
+        deleteClientService.deleteClient(input);
     }
 }

@@ -18,7 +18,7 @@ public class ManageClientServiceTest {
     public void validateCreateClientWithIdAlreadySaved() {
         Client cliente = new ClientTestDataBuilder().build();
         ClientRepository repositorioCliente = Mockito.mock(ClientRepository.class);
-        Mockito.when(repositorioCliente.checkIfClientExists(Mockito.any())).thenReturn(true);
+        Mockito.when(repositorioCliente.checkIfClientExists(cliente)).thenReturn(true);
 
         CreateClientService createClientService = new CreateClientService(repositorioCliente);
         BaseTest.assertThrows(()-> createClientService.createClient(cliente), ClientIsAlreadySavedException.class, "El cliente que desea guardar ya se encuentra registrado");
@@ -26,21 +26,20 @@ public class ManageClientServiceTest {
 
     @Test
     public void validateDeleteClientIfHasLendings() {
-        Client cliente = new ClientTestDataBuilder().build();
         ClientRepository repositorioCliente = Mockito.mock(ClientRepository.class);
         Mockito.when(repositorioCliente.checkIfLendingClientExists(Mockito.any())).thenReturn(true);
 
         DeleteClientService deleteClientService = new DeleteClientService(repositorioCliente);
-        BaseTest.assertThrows(()-> deleteClientService.deleteClient(cliente), ClientHasLendingsException.class, "El cliente que intenta eliminar tiene prestamos registrados");
+        BaseTest.assertThrows(()-> deleteClientService.deleteClient((long)21123123), ClientHasLendingsException.class, "El cliente que intenta eliminar tiene prestamos registrados");
     }
 
     @Test
     public void validateDeleteClientIfClientNotSaved() {
         Client cliente = new ClientTestDataBuilder().build();
         ClientRepository repositorioCliente = Mockito.mock(ClientRepository.class);
-        Mockito.when(repositorioCliente.checkIfClientExists(Mockito.any())).thenReturn(false);
+        Mockito.when(repositorioCliente.checkIfClientExistsById((long)123123)).thenReturn(false);
 
         DeleteClientService deleteClientService = new DeleteClientService(repositorioCliente);
-        BaseTest.assertThrows(()-> deleteClientService.deleteClient(cliente), ClientMustExistException.class, "El cliente que intenta eliminar no esta registrado");
+        BaseTest.assertThrows(()-> deleteClientService.deleteClient((long)21231231), ClientMustExistException.class, "El cliente que intenta eliminar no esta registrado");
     }
 }

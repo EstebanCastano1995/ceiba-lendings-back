@@ -23,8 +23,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -80,7 +79,7 @@ public class LendingControllerTest {
 
         lendingCommand.setId((long)2);
         lendingCommand.setLendingvalue(478000.0);
-        mockMvc.perform(post("/service/lending/update").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(put("/service/lending/"+lendingCommand.getId()).contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk()).andReturn();
     }
@@ -88,7 +87,7 @@ public class LendingControllerTest {
     @Test
     public void listLendings() throws Exception {
         this.createLending();
-        MvcResult resultmockMvc=mockMvc.perform(get("/service/lending").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/service/lending").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].lendingvalue", is(470000.0)))
