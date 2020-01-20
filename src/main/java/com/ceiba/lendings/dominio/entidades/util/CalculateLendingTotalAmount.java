@@ -19,17 +19,21 @@ public final class CalculateLendingTotalAmount {
     public static Double calculateLendingTotalAmount(Date lendingReturnDate,Date lendingDate, Double value) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(lendingDate);
-        Long days= ChronoUnit.DAYS.between(convertToLocalDate(lendingDate),convertToLocalDate(lendingReturnDate));
         Double totalAmount;
-        if(calendar.get(Calendar.DAY_OF_WEEK)==1){    //Si es sabado
+        Long days=getDaysBetweenDates(lendingDate,lendingReturnDate);
+        if(calendar.get(Calendar.DAY_OF_WEEK)==Calendar.SATURDAY){
             Double interest=OVERINTEREST/DAYSMONTH*days;
             totalAmount=value+interest/100*value;
         }
         else {
-            Double interest=INTEREST/DAYSMONTH*days;
-            totalAmount=value+interest/100*value;
+            Double interest = INTEREST / DAYSMONTH * days;
+            totalAmount = value + interest / 100 * value;
         }
-        return totalAmount;
+        return Math.floor(totalAmount * 100) / 100;
+    }
+
+    public static Long getDaysBetweenDates(Date lendingDate,Date lendingReturnDate){
+        return ChronoUnit.DAYS.between(convertToLocalDate(lendingDate),convertToLocalDate(lendingReturnDate));
     }
 
     private  static LocalDate convertToLocalDate(Date dateToConvert) {

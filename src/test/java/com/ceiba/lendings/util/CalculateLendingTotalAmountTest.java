@@ -9,13 +9,20 @@ public class CalculateLendingTotalAmountTest {
 
     @Test
     public void validateLendingDateBetweenWeekAndCorrectValue() {
-        Double totalAmount= CalculateLendingTotalAmount.calculateLendingTotalAmount(DateDataBuilder.build(2020,2,1),DateDataBuilder.build(2020,1,1),185000.0);
-        BaseTest.assertCorrect(totalAmount,188755.5);
+        Double totalAmount= CalculateLendingTotalAmount.calculateLendingTotalAmount(DateDataBuilder.build(2020,1,1),DateDataBuilder.build(2020,0,1),185000.0);
+        BaseTest.assertCorrect(totalAmount,189014.5);
     }
 
     @Test
     public void validateLendingDateOnSaturdayAndCorrectValue() {
-        Double totalAmount= CalculateLendingTotalAmount.calculateLendingTotalAmount(DateDataBuilder.build(2020,2,18),DateDataBuilder.build(2020,1,18),200000.0);
-        BaseTest.assertCorrect(totalAmount,204060.0);
+        Double totalAmount= CalculateLendingTotalAmount.calculateLendingTotalAmount(DateDataBuilder.build(2020,1,18),DateDataBuilder.build(2020,0,18),200000.0);
+        BaseTest.assertCorrect(totalAmount,205373.33);
+    }
+
+    @Test
+    public void testDaysBetweenDates() {
+        Long days=CalculateLendingTotalAmount.getDaysBetweenDates(DateDataBuilder.build(2020,0,18),DateDataBuilder.build(2020,1,18));
+        System.out.println(days);
+        BaseTest.assertCorrect(days,(long)31);
     }
 }
