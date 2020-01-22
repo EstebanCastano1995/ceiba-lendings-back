@@ -7,9 +7,9 @@ public class ClientIsAlreadySavedException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     /**
      * Constructor
-     * @param mensaje
+     * @param message
      */
-    public ClientIsAlreadySavedException(String mensaje) {
-        super(mensaje);
+    public ClientIsAlreadySavedException(String message) {
+        super(message);
     }
 }

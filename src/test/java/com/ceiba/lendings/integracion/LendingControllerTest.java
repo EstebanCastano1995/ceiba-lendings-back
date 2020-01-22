@@ -54,12 +54,12 @@ public class LendingControllerTest {
     @Test
     public void createLending() throws Exception {
         ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/service/client").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/client").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
 
         LendingCommand lendingCommand = new LendingCommandTestDataBuilder().build();
-        mockMvc.perform(post("/service/lending").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/lending").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk());
     }
@@ -67,18 +67,18 @@ public class LendingControllerTest {
     @Test
     public void updateLending() throws Exception {
         ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/service/client").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/client").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
 
         LendingCommand lendingCommand = new LendingCommandTestDataBuilder().build();
-        mockMvc.perform(post("/service/lending").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/lending").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk());
 
         lendingCommand.setId((long)2);
         lendingCommand.setLendingvalue(478000.0);
-        mockMvc.perform(put("/service/lending/"+lendingCommand.getId()).contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(put("/lending/"+lendingCommand.getId()).contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(lendingCommand)))
                 .andExpect(status().isOk()).andReturn();
     }
@@ -86,7 +86,7 @@ public class LendingControllerTest {
     @Test
     public void listLendings() throws Exception {
         this.createLending();
-        mockMvc.perform(get("/service/lending").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/lending").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].lendingvalue", is(470000.0)))

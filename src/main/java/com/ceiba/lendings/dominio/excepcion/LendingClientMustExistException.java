@@ -7,9 +7,9 @@ public class LendingClientMustExistException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     /**
      * Constructor
-     * @param mensaje
+     * @param message
      */
-    public LendingClientMustExistException(String mensaje) {
-        super(mensaje);
+    public LendingClientMustExistException(String message) {
+        super(message);
     }
 }

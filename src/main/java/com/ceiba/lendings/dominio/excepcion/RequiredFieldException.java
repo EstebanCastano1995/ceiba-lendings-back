@@ -7,9 +7,9 @@ public class RequiredFieldException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     /**
      * Constructor
-     * @param mensaje
+     * @param message
      */
-    public RequiredFieldException(String mensaje) {
-        super(mensaje);
+    public RequiredFieldException(String message) {
+        super(message);
     }
 }

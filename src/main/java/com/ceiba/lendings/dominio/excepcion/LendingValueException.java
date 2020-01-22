@@ -7,9 +7,9 @@ public class LendingValueException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     /**
      * Constructor
-     * @param mensaje
+     * @param message
      */
-    public LendingValueException(String mensaje) {
-        super(mensaje);
+    public LendingValueException(String message) {
+        super(message);
     }
 }

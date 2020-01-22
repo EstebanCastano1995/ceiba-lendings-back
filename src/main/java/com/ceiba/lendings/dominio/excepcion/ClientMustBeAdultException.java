@@ -7,9 +7,9 @@ public class ClientMustBeAdultException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     /**
      * Constructor
-     * @param mensaje
+     * @param message
      */
-    public ClientMustBeAdultException(String mensaje) {
-        super(mensaje);
+    public ClientMustBeAdultException(String message) {
+        super(message);
     }
 }

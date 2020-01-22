@@ -11,18 +11,15 @@ import java.util.Date;
 
 public final class ClientValidator {
 
-    private ClientValidator() {
+    public static void validateField(Object value, String message) {
+        if(value==null)
+            throw new RequiredFieldException(message);
     }
 
-    public static void validateField(Object valor, String mensaje) {
-        if(valor==null)
-            throw new RequiredFieldException(mensaje);
-    }
-
-        public static void validateClientAge(Date birthDate, String mensaje) {
+        public static void validateClientAge(Date birthDate, String message) {
             LocalDate currentDate=LocalDate.now();
             if(Period.between(convertToLocalDate(birthDate), currentDate).getYears()<18)
-                throw new ClientMustBeAdultException(mensaje);
+                throw new ClientMustBeAdultException(message);
         }
 
         private  static LocalDate convertToLocalDate(Date dateToConvert) {

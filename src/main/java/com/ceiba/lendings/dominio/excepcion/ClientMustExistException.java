@@ -7,9 +7,9 @@ public class ClientMustExistException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     /**
      * Constructor
-     * @param mensaje
+     * @param message
      */
-    public ClientMustExistException(String mensaje) {
-        super(mensaje);
+    public ClientMustExistException(String message) {
+        super(message);
     }
 }

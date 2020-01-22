@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 @RestController
-@RequestMapping("/service/lending")
+@RequestMapping("/lending")
 public class LendingController {
 
     private CreateLendingUseCase createLendingUseCase;

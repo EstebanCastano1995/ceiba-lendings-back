@@ -4,12 +4,9 @@ import com.ceiba.lendings.dominio.excepcion.RequiredFieldException;
 
 public final class PaymentValidator {
 
-    private PaymentValidator() {
-    }
-
-    public static void validateField(Object valor, String mensaje) {
-        if(valor==null) {
-            throw new RequiredFieldException(mensaje);
+    public static void validateField(Object value, String message) {
+        if(value==null) {
+            throw new RequiredFieldException(message);
         }
     }
 }

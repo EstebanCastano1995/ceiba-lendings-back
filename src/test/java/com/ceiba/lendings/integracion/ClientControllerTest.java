@@ -50,7 +50,7 @@ public class ClientControllerTest {
     @Test
     public void createClient() throws Exception {
         ClientCommand comandoCliente = new ClientCommandTestDataBuilder().build();
-        mockMvc.perform(post("/service/client").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/client").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoCliente)))
                 .andExpect(status().isOk());
     }
@@ -58,7 +58,7 @@ public class ClientControllerTest {
     @Test
     public void listClients () throws Exception {
         createClient();
-        mockMvc.perform(get("/service/client").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/client").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].name", is("Esteban Castaño")));
@@ -66,14 +66,14 @@ public class ClientControllerTest {
 
     @Test
     public void deleteClientWithOutSaving() throws Exception {
-        mockMvc.perform(delete("/service/client/45122").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(delete("/client/45122").contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isInternalServerError());
     }
 
     @Test
     public void deleteClientSavingFirst() throws Exception {
         this.createClient();
-        mockMvc.perform(delete("/service/client/"+11111).contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(delete("/client/"+11111).contentType(MediaType.APPLICATION_JSON))
        .andExpect(status().isOk());
     }
 }

@@ -14,9 +14,9 @@ public class CreateClientService {
         this.clientRepository = clientRepository;
     }
 
-    public void createClient(Client cliente) {
-         checkIfClientExists(cliente);
-         clientRepository.createClient(cliente);
+    public void createClient(Client client) {
+         checkIfClientExists(client);
+         clientRepository.createClient(client);
     }
 
     private void checkIfClientExists(Client client){
