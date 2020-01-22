@@ -11,6 +11,10 @@ import java.util.Date;
 
 public final class ClientValidator {
 
+    private ClientValidator() {
+        throw new UnsupportedOperationException();
+    }
+
     public static void validateField(Object value, String message) {
         if(value==null)
             throw new RequiredFieldException(message);

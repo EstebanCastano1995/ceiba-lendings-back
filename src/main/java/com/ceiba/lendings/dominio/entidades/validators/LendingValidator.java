@@ -9,6 +9,10 @@ import java.util.Date;
 
 public final class LendingValidator {
 
+    private LendingValidator() {
+        throw new UnsupportedOperationException();
+    }
+
     public static final int MONTO_MAXIMO_PERMITIDO = 500000;
     public static final int MINIMUM_VALUE_ALLOWED = 100000;
 

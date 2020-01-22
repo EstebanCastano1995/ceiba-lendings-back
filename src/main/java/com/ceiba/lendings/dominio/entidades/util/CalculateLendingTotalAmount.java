@@ -9,7 +9,8 @@ import java.util.Date;
 
 public final class CalculateLendingTotalAmount {
 
-    private CalculateLendingTotalAmount(){
+    private CalculateLendingTotalAmount() {
+        throw new UnsupportedOperationException();
     }
 
     private static final Double INTEREST=2.1;
